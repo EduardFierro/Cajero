@@ -19,6 +19,7 @@ public class PanelIzquierdo extends JPanel{
 		constraint.insets = insets;
 
 		JButton ok1 = new JButton("ok");
+		ok1.setBackground(java.awt.Color.cyan);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 0;
