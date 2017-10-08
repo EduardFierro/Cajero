@@ -34,7 +34,7 @@ public class VentanaCajero extends JFrame {
 
 	public void componentes() {
 
-		/* Creación de los paneles aquí
+		//Creación de los paneles aquí
 		panelArriba = new PanelArriba();
 		add(panelArriba, BorderLayout.NORTH);
 
@@ -53,22 +53,8 @@ public class VentanaCajero extends JFrame {
 		add(panelIzquierdo, BorderLayout.WEST);
 		
 		panelDerecho = new PanelDerecho(); 
-		add(panelDerecho, BorderLayout.EAST);*/
-		//PanelArriba
-		JLabel imagenArriba = new JLabel();
-		ImageIcon iconoArriba = new ImageIcon("images/logocajero.jpg");
-
-		imagenArriba.setIcon(iconoArriba);
-		imagenArriba.setAlignmentX(CENTER_ALIGNMENT);
-		add(imagenArriba, BorderLayout.NORTH);
+		add(panelDerecho, BorderLayout.EAST);
 		
-		//PanelCentral
-		JLabel imagenCentral = new JLabel();
-		ImageIcon iconoCentral = new ImageIcon("images/bienvenidousuario.jpg");
-
-		imagenCentral.setIcon(iconoCentral);
-		imagenCentral.setAlignmentX(CENTER_ALIGNMENT);
-		add(imagenCentral, BorderLayout.CENTER);
 		
 		
 	}
