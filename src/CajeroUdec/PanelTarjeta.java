@@ -39,7 +39,6 @@ public class PanelTarjeta extends JPanel{
 		add(ntarjeta, constraint);
 		
 		JButton ok = new JButton("ok");
-		ok.setBackground(Color.green);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 1;
