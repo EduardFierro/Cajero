@@ -8,14 +8,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import CajeroUdec.PanelUser;
+
 public class PanelTarjeta extends JPanel {
 	int ced,saldo, clave;
 	String ntarj, nom, ape;
+	PanelUser panelUser;
+	VentanaCajero ventana;
 
 	public PanelTarjeta() {
 		setLayout(new GridBagLayout());
@@ -26,7 +32,7 @@ public class PanelTarjeta extends JPanel {
 		Insets insets = new Insets(5, 10, 5, 10);
 		constraint.insets = insets;
 
-		JLabel tarjeta = new JLabel("Inserte tarjeta:          ");
+		JLabel tarjeta = new JLabel("Inserte tarjeta: (C.C)       ");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0;
 		constraint.gridy = 0;
@@ -35,7 +41,7 @@ public class PanelTarjeta extends JPanel {
 		constraint.insets = insets;
 		add(tarjeta, constraint);
 
-		JTextField ntarjeta = new JTextField("C.C");
+		JTextField ntarjeta = new JTextField("");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0;
 		constraint.gridy = 1;
@@ -83,5 +89,12 @@ public class PanelTarjeta extends JPanel {
 				}
 			}
 		});
+		
+		agrusuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PanelUser obj = new PanelUser();
+			}
+		}
+		);
 	}
 }
