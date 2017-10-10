@@ -45,18 +45,15 @@ public class VentanaCajero extends JFrame {
 		add(panelCentral1, BorderLayout.CENTER);
 		panelCentral1.setVisible(true);
 		
-		panelCentral2 = new PanelCentral2();
+		/*panelCentral2 = new PanelCentral2();
 		add(panelCentral2, BorderLayout.CENTER);
-		panelCentral2.setVisible(true);
+		panelCentral2.setVisible(true);*/
 		
 		panelIzquierdo = new PanelIzquierdo();
 		add(panelIzquierdo, BorderLayout.WEST);
 		
 		panelDerecho = new PanelDerecho(); 
 		add(panelDerecho, BorderLayout.EAST);
-		
-		
-		
 	}
 
 }
