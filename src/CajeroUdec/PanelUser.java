@@ -19,7 +19,7 @@ import javax.swing.border.Border;
 
 public class PanelUser extends JFrame{
 	public PanelUser() {
-		this("Demo");
+		this("Registro Usuario");
 	}
 
 	public PanelUser(String titulo) {
@@ -37,7 +37,7 @@ public class PanelUser extends JFrame{
 		this.setSize(dims);
 		this.setPreferredSize(dims);
 		this.getContentPane().setLayout(null);
-		//this.getContentPane().setBackground(Color.black);
+		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		return this;
@@ -53,6 +53,7 @@ public class PanelUser extends JFrame{
 		constraint.insets = insets;
 
 		JLabel titulo = new JLabel("DATOS USUARIO");
+		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 0;
@@ -62,6 +63,7 @@ public class PanelUser extends JFrame{
 		add(titulo, constraint);
 		
 		JLabel cedula = new JLabel("CÉDULA: ");
+		cedula.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
@@ -80,6 +82,7 @@ public class PanelUser extends JFrame{
 		add(ced, constraint);
 		
 		JLabel nombre = new JLabel("NOMBRE: ");
+		nombre.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 2;
@@ -98,6 +101,7 @@ public class PanelUser extends JFrame{
 		add(nom, constraint);
 		
 		JLabel apellido = new JLabel("APELLIDO: ");
+		apellido.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 3;
@@ -116,6 +120,7 @@ public class PanelUser extends JFrame{
 		add(ape, constraint);
 		
 		JLabel saldo = new JLabel("SALDO: ");
+		saldo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 4;
@@ -134,6 +139,7 @@ public class PanelUser extends JFrame{
 		add(sald, constraint);
 		
 		JLabel clave = new JLabel("CLAVE: ");
+		clave.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 5;
@@ -152,6 +158,7 @@ public class PanelUser extends JFrame{
 		add(cla, constraint);
 		
 		JButton aceptar = new JButton("ACEPTAR");
+		aceptar.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 7;
