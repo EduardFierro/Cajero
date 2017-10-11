@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -17,7 +18,10 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 
+
 public class PanelUser extends JFrame{
+	
+	public static ArrayList<Usuario> user = new ArrayList();
 	public PanelUser() {
 		this("Registro Usuario");
 	}
@@ -170,6 +174,10 @@ public class PanelUser extends JFrame{
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				
+				Usuario us = new Usuario(ced.getText(),nom.getText(),ape.getText(),cla.getText(),Integer.parseInt(sald.getText()));
+				user.add(us);
+				System.out.println(user);
 			}
 		}
 		);

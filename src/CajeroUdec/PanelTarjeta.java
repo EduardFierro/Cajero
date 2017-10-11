@@ -75,6 +75,8 @@ public class PanelTarjeta extends JPanel {
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ntarj=ntarjeta.getText();
+				System.out.println(PanelUser.user);
+				
 				if(ntarj.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
 				}else {
