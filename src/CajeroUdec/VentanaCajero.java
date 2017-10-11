@@ -5,13 +5,14 @@ import javax.swing.*;
 
 public class VentanaCajero extends JFrame {
 	PanelArriba panelArriba;
-	PanelCentral1 panelCentral1;
+	PanelInicial panelInicial;
 	PanelFunciones panelFunciones;
 	PanelIzquierdo panelIzquierdo;
 	PanelDerecho panelDerecho;
 	PanelAbajo panelAbajo;
 	PanelUser panelUser;
 	PanelRetiro panelRetiro;
+	PanelConfirmacion panelConfirmacion;
 
 	VentanaCajero() {
 		super("CAJERO UDEC");
@@ -46,14 +47,17 @@ public class VentanaCajero extends JFrame {
 
 		/*panelFunciones = new PanelFunciones();
 		add(panelFunciones, BorderLayout.CENTER);
-		panelFunciones.setVisible(true);*/
+		panelFunciones.setVisible(true);
 		
 		panelRetiro = new PanelRetiro();
 		add(panelRetiro, BorderLayout.CENTER);
 		
-		/*panelCentral1 = new PanelCentral1();
-		add(panelCentral1, BorderLayout.CENTER);
-		panelCentral1.setVisible(true);*/
+		panelInicial = new PanelInicial();
+		add(panelInicial, BorderLayout.CENTER);
+		panelInicial.setVisible(true);*/
+		
+		panelConfirmacion = new PanelConfirmacion();
+		add(panelConfirmacion, BorderLayout.CENTER);
 		
 		panelIzquierdo = new PanelIzquierdo();
 		add(panelIzquierdo, BorderLayout.WEST);

@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PanelCentral1 extends JPanel{
-	public PanelCentral1(){
+public class PanelInicial extends JPanel{
+	public PanelInicial(){
 		this.setBackground(Color.black);
 		JLabel imagen = new JLabel();
 		ImageIcon icono = new ImageIcon("images/bienvenidousuario.jpg");
