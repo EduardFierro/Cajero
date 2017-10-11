@@ -28,7 +28,7 @@ public class PanelIzquierdo extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 0;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(25, 10, 25, 10);
+		insets = new Insets(20, 10, 20, 10);
 		constraint.insets = insets;
 		add(ok1, constraint);
 		
@@ -38,7 +38,7 @@ public class PanelIzquierdo extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(25, 10, 25, 10);
+		insets = new Insets(20, 10, 20, 10);
 		constraint.insets = insets;
 		add(ok2, constraint);
 		
@@ -48,7 +48,7 @@ public class PanelIzquierdo extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(25, 10, 25, 10);
+		insets = new Insets(20, 10, 20, 10);
 		constraint.insets = insets;
 		add(ok3, constraint);
 		

@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-public class PanelCentral2 extends JPanel{
+public class PanelFunciones extends JPanel{
 	
 
 	
-	public PanelCentral2() {
+	public PanelFunciones() {
 		this.setBackground(Color.LIGHT_GRAY);
 		Border blackline;
 		blackline = BorderFactory.createLineBorder(Color.black);
