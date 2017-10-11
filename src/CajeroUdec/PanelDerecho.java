@@ -30,7 +30,7 @@ public class PanelDerecho extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 0;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 10, 30, 10);
+		insets = new Insets(20, 10, 20, 10);
 		constraint.insets = insets;
 		add(ok1, constraint);
 		
@@ -40,9 +40,19 @@ public class PanelDerecho extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 10, 30, 10);
+		insets = new Insets(20, 10, 20, 10);
 		constraint.insets = insets;
 		add(ok2, constraint);
+		
+		JButton ok3 = new JButton();
+		ok3.setIcon(icono);
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1; 
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH; 
+		insets = new Insets(20, 10, 20, 10);
+		constraint.insets = insets;
+		add(ok3, constraint);
 		
 		/*JLabel spacewhite1 = new JLabel("          ");
 		constraint = new GridBagConstraints();
