@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -24,6 +25,7 @@ public class PanelTarjeta extends JPanel {
 	VentanaCajero ventana;
 
 	public PanelTarjeta() {
+		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
 		constraint.gridx = 0;
@@ -50,7 +52,9 @@ public class PanelTarjeta extends JPanel {
 		constraint.insets = insets;
 		add(ntarjeta, constraint);
 
-		JButton ok = new JButton("ok");
+		JButton ok = new JButton(">>");
+		/*ImageIcon icono = new ImageIcon("images/Flecha apuntando.gif");
+		ok.setIcon(icono);*/
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1;
 		constraint.gridy = 1;

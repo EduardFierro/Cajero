@@ -28,6 +28,7 @@ public class VentanaCajero extends JFrame {
 		this.setSize(dims);
 		this.setPreferredSize(dims);
 		this.getContentPane().setLayout(new BorderLayout());
+		this.setBackground(Color.GREEN);
 		this.setLocationRelativeTo(null);setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		return this;
@@ -42,9 +43,9 @@ public class VentanaCajero extends JFrame {
 		panelAbajo = new PanelAbajo();
 		add(panelAbajo, BorderLayout.SOUTH);
 
-		panelCentral2 = new PanelCentral2();
+		/*panelCentral2 = new PanelCentral2();
 		add(panelCentral2, BorderLayout.CENTER);
-		panelCentral2.setVisible(false);
+		panelCentral2.setVisible(true);*/
 		
 		
 		panelCentral1 = new PanelCentral1();

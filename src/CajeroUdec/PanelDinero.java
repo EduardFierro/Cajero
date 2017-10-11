@@ -14,6 +14,7 @@ import javax.swing.border.Border;
 
 public class PanelDinero extends JPanel{
 	public PanelDinero() {
+		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
 		constraint.gridx = 0;

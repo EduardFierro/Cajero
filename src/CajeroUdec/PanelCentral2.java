@@ -15,6 +15,7 @@ public class PanelCentral2 extends JPanel{
 
 	
 	public PanelCentral2() {
+		this.setBackground(Color.LIGHT_GRAY);
 		Border blackline;
 		blackline = BorderFactory.createLineBorder(Color.black);
 		setLayout(new GridBagLayout());

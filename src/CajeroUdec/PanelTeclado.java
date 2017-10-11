@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 
 public class PanelTeclado extends JPanel{
 	public PanelTeclado() {
+		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
 		constraint.gridx = 0;
