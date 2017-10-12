@@ -1,16 +1,26 @@
 package CajeroUdec;
 
 import java.awt.Color;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
-
+import CajeroUdec.PanelTarjeta;
 public class PanelTeclado extends JPanel{
+	
+	public ArrayList<Character> numCed = new ArrayList<Character>();
+	public char[] ced;
+	String numero="";
+	String cedul="";
 	public PanelTeclado() {
 		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
@@ -158,6 +168,139 @@ public class PanelTeclado extends JPanel{
 		insets = new Insets(5, 10, 5, 10);
 		constraint.insets = insets;
 		add(salir, constraint);
+		
+		uno.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="1";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+				
+				
+			}
+			
+		}
+		);
+		dos.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="2";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		tres.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="3";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		cuatro.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="4";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		cinco.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="5";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		seis.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="6";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		siete.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="7";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		ocho.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="8";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		nueve.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="9";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		cero.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				numero ="0";
+				cedul+=numero;
+				
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				
+				
+			}
+			
+		}
+		);
+		limpiar.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				cedul="";
+				PanelTarjeta.ntarjeta.setText("");
+				
+				
+			}
+			
+		}
+		);
 	}
 }
 

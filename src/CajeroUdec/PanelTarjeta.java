@@ -6,8 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,13 +19,16 @@ import javax.swing.JTextField;
 
 import CajeroUdec.PanelUser;
 
+
 public class PanelTarjeta extends JPanel {
-	public List<Usuario> user = new ArrayList<Usuario>();
-	int ced,saldo, clave;
-	String ntarj, nom, ape;
+	int ced,saldo,clave;
+	String ntarj;
+	Array[] resul;
+	Object [] cedula;
+	String  nom, ape;
 	PanelUser panelUser;
 	VentanaCajero ventana;
-
+	public static JTextField ntarjeta;
 	public PanelTarjeta() {
 		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
@@ -46,7 +48,7 @@ public class PanelTarjeta extends JPanel {
 		constraint.insets = insets;
 		add(tarjeta, constraint);
 
-		JTextField ntarjeta = new JTextField("");
+		ntarjeta = new JTextField("");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0;
 		constraint.gridy = 1;
@@ -78,23 +80,30 @@ public class PanelTarjeta extends JPanel {
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ntarj=ntarjeta.getText();
+				System.out.println(PanelUser.user);
+				for (Usuario usuario : PanelUser.user) {
+					Object[] cedula = {usuario.getCedula(),usuario.getNombre(),usuario.getApellido(),usuario.getSaldo(),usuario.getClave()};
+					resul =(Array[]) cedula;
+				}
 				if(ntarj.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
 				}else {
 					try {
-						ced=Integer.parseInt(ntarjeta.getText());
+					ced=Integer.parseInt(ntarjeta.getText());
 					}catch(Exception p) {
 						JOptionPane.showMessageDialog(null, "Número de tarjeta no válido");
 						ntarj="";
 						ntarjeta.setText("");
+					}finally {
+						for(int i=0;i<resul.length;i++) {
+							if(!ntarj.isEmpty() ) {
+								JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
+							}else {
+								JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
+							}
+						}
+						
 					}
-					/*if(ced==((Usuario) user).getCedula()) {
-						System.out.println("1");
-						JOptionPane.showMessageDialog(null, "Cédula encontrada");
-					}else {
-						System.out.println("2");
-						JOptionPane.showMessageDialog(null, "Cédula no registrada");
-					}*/
 				}
 			}
 		});
