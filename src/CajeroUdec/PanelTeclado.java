@@ -1,5 +1,6 @@
 package CajeroUdec;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import java.awt.GridBagConstraints;
@@ -16,7 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import CajeroUdec.PanelTarjeta;
 public class PanelTeclado extends JPanel{
-	
+	public static PanelFunciones panelFunciones;
+	public static VentanaCajero ventanaCajero;
 	public ArrayList<Character> numCed = new ArrayList<Character>();
 	public char[] ced;
 	String numero="";
@@ -296,6 +298,18 @@ public class PanelTeclado extends JPanel{
 				cedul="";
 				PanelTarjeta.ntarjeta.setText("");
 				
+				
+			}
+			
+		}
+		);
+		
+		cancelar.addActionListener (new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				ventanaCajero.removeAll();
+				ventanaCajero.add(panelFunciones,BorderLayout.CENTER);
+				ventanaCajero.revalidate();
+				ventanaCajero.repaint();
 				
 			}
 			

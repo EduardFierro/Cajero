@@ -4,13 +4,20 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 public class PanelRetiro extends JPanel{
+	public static int opcion;
+	
 	public PanelRetiro() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -36,7 +43,7 @@ public class PanelRetiro extends JPanel{
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 50, 30, 50);
+		insets = new Insets(28, 50, 28, 50);
 		constraint.insets = insets;
 		add(dinero600, constraint);
 		
@@ -45,7 +52,7 @@ public class PanelRetiro extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 50, 30, 50);
+		insets = new Insets(28, 50, 28, 50);
 		constraint.insets = insets;
 		add(dinero400, constraint);
 		
@@ -54,7 +61,7 @@ public class PanelRetiro extends JPanel{
 		constraint.gridx = 0; 
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 50, 30, 50);
+		insets = new Insets(28, 50, 28, 50);
 		constraint.insets = insets;
 		add(dinero200, constraint);
 		
@@ -63,7 +70,7 @@ public class PanelRetiro extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 50, 30, 50);
+		insets = new Insets(28, 50, 28, 50);
 		constraint.insets = insets;
 		add(dinero100, constraint);
 		
@@ -72,7 +79,7 @@ public class PanelRetiro extends JPanel{
 		constraint.gridx = 0; 
 		constraint.gridy = 3;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 50, 30, 50);
+		insets = new Insets(28, 50, 28, 50);
 		constraint.insets = insets;
 		add(dinero50, constraint);
 		
@@ -81,8 +88,10 @@ public class PanelRetiro extends JPanel{
 		constraint.gridx = 1; 
 		constraint.gridy = 3;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(30, 50, 30, 50);
+		insets = new Insets(28, 50, 28, 50);
 		constraint.insets = insets;
 		add(dinero20, constraint);
+	
+		
 	}
 }

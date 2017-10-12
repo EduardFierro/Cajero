@@ -4,19 +4,19 @@ import java.awt.*;
 import javax.swing.*;
 
 public class VentanaCajero extends JFrame {
-	PanelArriba panelArriba;
-	PanelInicial panelInicial;
-	PanelFunciones panelFunciones;
-	PanelIzquierdo panelIzquierdo;
-	PanelDerecho panelDerecho;
-	PanelAbajo panelAbajo;
-	PanelUser panelUser;
-	PanelRetiro panelRetiro;
-	PanelConfirmacion panelConfirmacion;
-	PanelConsulta panelConsulta;
-	PanelTransfers panelTransfers;
-	PanelPagos panelPagos;
-	PanelClave panelClave;
+	public static PanelArriba panelArriba;
+	public static PanelInicial panelInicial;
+	public static PanelFunciones panelFunciones;
+	public static PanelIzquierdo panelIzquierdo;
+	public static PanelDerecho panelDerecho;
+	public static PanelAbajo panelAbajo;
+	public static PanelUser panelUser;
+	public static PanelRetiro panelRetiro;
+	public static PanelConfirmacion panelConfirmacion;
+	public static PanelConsulta panelConsulta;
+	public static PanelTransfers panelTransfers;
+	public static PanelPagos panelPagos;
+	public static PanelClave panelClave;
 
 	VentanaCajero() {
 		super("CAJERO UDEC");
@@ -35,56 +35,41 @@ public class VentanaCajero extends JFrame {
 		this.setPreferredSize(dims);
 		this.getContentPane().setLayout(new BorderLayout());
 		this.setBackground(Color.GREEN);
-		this.setLocationRelativeTo(null);setLocationRelativeTo(null);
+		this.setLocationRelativeTo(null);
+		setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		return this;
 	}
 
 	public void componentes() {
 
-		//Creación de los paneles aquí
+		// Creación de los paneles aquí
 		panelArriba = new PanelArriba();
 		add(panelArriba, BorderLayout.NORTH);
 
 		panelAbajo = new PanelAbajo();
 		add(panelAbajo, BorderLayout.SOUTH);
 
-		/*panelFunciones = new PanelFunciones();
-		add(panelFunciones, BorderLayout.CENTER);
-		panelFunciones.setVisible(true);
-		
-		panelRetiro = new PanelRetiro();
-		add(panelRetiro, BorderLayout.CENTER);
-		
-		panelInicial = new PanelInicial();
-		add(panelInicial, BorderLayout.CENTER);
-		panelInicial.setVisible(true);
-		
-		panelConfirmacion = new PanelConfirmacion();
-		add(panelConfirmacion, BorderLayout.CENTER);
-		
-		panelConsulta = new PanelConsulta();
-		add(panelConsulta, BorderLayout.CENTER);
-		
-		panelTransfers = new PanelTransfers();
-		add(panelTransfers, BorderLayout.CENTER);
-		
-		panelPagos = new PanelPagos();
-		add(panelPagos, BorderLayout.CENTER);*/
-		
-		panelClave = new PanelClave();
-		add(panelClave, BorderLayout.CENTER);
-		
 		panelIzquierdo = new PanelIzquierdo();
 		add(panelIzquierdo, BorderLayout.WEST);
-		
-		panelDerecho = new PanelDerecho(); 
+
+		panelDerecho = new PanelDerecho();
 		add(panelDerecho, BorderLayout.EAST);
+		
+		panelInicial = new PanelInicial();
+		panelRetiro = new PanelRetiro();
+		panelConfirmacion = new PanelConfirmacion();
+		panelConsulta = new PanelConsulta();
+		panelTransfers = new PanelTransfers();
+		panelPagos = new PanelPagos();
+		panelClave = new PanelClave();
+		panelFunciones = new PanelFunciones();
+		add(panelTransfers, BorderLayout.CENTER);
+
 	}
-	
 
 	public void visibleUser() {
 		panelUser.setVisible(true);
-		
+
 	}
 }

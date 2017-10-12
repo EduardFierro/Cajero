@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -97,5 +99,11 @@ public class PanelPagos extends JPanel{
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(continuar, constraint);
+		
+		continuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 	}
 }

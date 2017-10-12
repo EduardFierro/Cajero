@@ -13,6 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 public class PanelDinero extends JPanel{
+	/*public static PanelRetiro panelRetiro;
+	public static PanelTransfers panelTransfers;
+	public static PanelPagos panelPagos;*/
+	public static JTextField msjdinero;
+	
 	public PanelDinero() {
 		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
@@ -32,7 +37,7 @@ public class PanelDinero extends JPanel{
 		constraint.insets = insets;
 		add(dinero, constraint);
 		
-		JTextField msjdinero = new JTextField("");
+		msjdinero = new JTextField("");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;

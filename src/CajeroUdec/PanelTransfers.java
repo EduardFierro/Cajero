@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -11,6 +15,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelTransfers extends JPanel{
+	public static int valTrans;
+	public static PanelUser panelUser;
+	public static PanelDinero panelDinero;
+	int resul;
+	Object[] saldo;
+	String nombreTrans;
+	int numCuenta;
 	public PanelTransfers(){
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -103,5 +114,23 @@ public class PanelTransfers extends JPanel{
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(continuar, constraint);
+		
+		continuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nombreTrans=nom.getText();
+				numCuenta=Integer.parseInt(nCta.getText());
+				valTrans=Integer.parseInt(val.getText());
+				for (Usuario usuario : PanelUser.user) {
+					Object[] saldo = {usuario.getSaldo()};
+					resul=(int) saldo[0];
+				}
+				if(valTrans<=resul) {
+					panelDinero.msjdinero.setText("Transferencia exitosa");
+				}else {
+					panelDinero.msjdinero.setText("Transferencia no realizada");
+				}
+				
+			}
+		});
 	}
 }
