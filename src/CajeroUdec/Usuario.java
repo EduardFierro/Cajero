@@ -1,13 +1,13 @@
 package CajeroUdec;
 
 public class Usuario {
-	private String cedula;
+	private int cedula;
 	private String nombre;
 	private String apellido;
 	private String clave;
 	private int saldo;
 	
-	public Usuario(String cedula, String nombre, String apellido,String clave, int saldo) {
+	public Usuario(int cedula, String nombre, String apellido,String clave, int saldo) {
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -15,11 +15,11 @@ public class Usuario {
 		this.saldo = saldo;
 	}
 
-	public String getCedula() {
+	public int getCedula() {
 		return cedula;
 	}
 
-	public void setCedula(String cedula) {
+	public void setCedula(int cedula) {
 		this.cedula = cedula;
 	}
 

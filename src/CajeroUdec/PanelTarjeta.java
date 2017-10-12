@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,9 +19,13 @@ import javax.swing.JTextField;
 
 import CajeroUdec.PanelUser;
 
+
 public class PanelTarjeta extends JPanel {
-	int ced,saldo, clave;
-	String ntarj, nom, ape;
+	int ced,saldo,clave;
+	String ntarj;
+	Array[] resul;
+	Object [] cedula;
+	String  nom, ape;
 	PanelUser panelUser;
 	VentanaCajero ventana;
 
@@ -76,7 +81,10 @@ public class PanelTarjeta extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				ntarj=ntarjeta.getText();
 				System.out.println(PanelUser.user);
-				
+				for (Usuario usuario : PanelUser.user) {
+					Object[] cedula = {usuario.getCedula(),usuario.getNombre(),usuario.getApellido(),usuario.getSaldo(),usuario.getClave()};
+					resul =(Array[]) cedula;
+				}
 				if(ntarj.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
 				}else {
@@ -87,10 +95,14 @@ public class PanelTarjeta extends JPanel {
 						ntarj="";
 						ntarjeta.setText("");
 					}finally {
-						if(!ntarj.isEmpty()) {
-							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
-							System.out.println(ced);
+						for(int i=0;i<resul.length;i++) {
+							if(!ntarj.isEmpty() && ced == resul[i]) {
+								JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
+							}else {
+								JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
+							}
 						}
+						
 					}
 				}
 			}

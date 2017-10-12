@@ -175,7 +175,7 @@ public class PanelUser extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				
-				Usuario us = new Usuario(ced.getText(),nom.getText(),ape.getText(),cla.getText(),Integer.parseInt(sald.getText()));
+				Usuario us = new Usuario(Integer.parseInt(ced.getText()),nom.getText(),ape.getText(),cla.getText(),Integer.parseInt(sald.getText()));
 				user.add(us);
 				System.out.println(user);
 			}
