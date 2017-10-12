@@ -5,13 +5,15 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelTransfers extends JPanel{
-	public PanelTransfers(){
+public class PanelPagos extends JPanel{
+	public PanelPagos() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -21,7 +23,7 @@ public class PanelTransfers extends JPanel{
 		Insets insets = new Insets(40, 50, 40, 50);
 		constraint.insets = insets;
 		
-		JLabel titulo = new JLabel("Transferencias");
+		JLabel titulo = new JLabel("Pagos");
 		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
@@ -31,69 +33,61 @@ public class PanelTransfers extends JPanel{
 		constraint.insets = insets;
 		add(titulo, constraint);
 		
-		JLabel spacewhite = new JLabel("                                                 ");
-		titulo.setForeground(Color.blue);
-		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
-		constraint.gridy = 0;
-		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(8, 10, 8, 10);
-		constraint.insets = insets;
-		add(spacewhite, constraint);
-		
-		JLabel nombre = new JLabel("Nombre: ");
+		JLabel elegir = new JLabel("Empresas: ");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(nombre, constraint);
+		add(elegir, constraint);
 		
-		JTextField nom = new JTextField();
+		JComboBox empresas = new JComboBox();
+		empresas.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar","Claro","Movistar","Tigo-UNE","ETB","Virgin Mobile","Avantel","Móvil Éxito","Uff! Móvil","Codensa"}));
+		empresas.setSelectedIndex(0);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(nom, constraint);
+		add(empresas, constraint);
 		
-		JLabel numCta = new JLabel("Número de cuenta: ");
+		JLabel numRef = new JLabel("Número de referencia: ");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(numCta, constraint);
+		add(numRef, constraint);
 		
-		JTextField nCta = new JTextField();
+		JTextField nRef = new JTextField();
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(nCta, constraint);
+		add(nRef, constraint);
 		
-		JLabel valor = new JLabel("Valor a transferir: ");
+		JLabel valPag = new JLabel("Valor a pagar: ");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 3;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(valor, constraint);
+		add(valPag, constraint);
 		
-		JTextField val = new JTextField();
+		JTextField vPag = new JTextField();
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 3;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(val, constraint);
+		add(vPag, constraint);
 		
 		JButton continuar = new JButton("CONTINUAR");
 		constraint = new GridBagConstraints();

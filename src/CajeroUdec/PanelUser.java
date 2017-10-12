@@ -177,6 +177,7 @@ public class PanelUser extends JFrame{
 				
 				Usuario us = new Usuario(Integer.parseInt(ced.getText()),nom.getText(),ape.getText(),cla.getText(),Integer.parseInt(sald.getText()));
 				user.add(us);
+				
 				System.out.println(user);
 			}
 		}
