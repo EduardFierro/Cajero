@@ -16,6 +16,7 @@ public class VentanaCajero extends JFrame {
 	PanelConsulta panelConsulta;
 	PanelTransfers panelTransfers;
 	PanelPagos panelPagos;
+	PanelClave panelClave;
 
 	VentanaCajero() {
 		super("CAJERO UDEC");
@@ -66,10 +67,13 @@ public class VentanaCajero extends JFrame {
 		add(panelConsulta, BorderLayout.CENTER);
 		
 		panelTransfers = new PanelTransfers();
-		add(panelTransfers, BorderLayout.CENTER);*/
+		add(panelTransfers, BorderLayout.CENTER);
 		
 		panelPagos = new PanelPagos();
-		add(panelPagos, BorderLayout.CENTER);
+		add(panelPagos, BorderLayout.CENTER);*/
+		
+		panelClave = new PanelClave();
+		add(panelClave, BorderLayout.CENTER);
 		
 		panelIzquierdo = new PanelIzquierdo();
 		add(panelIzquierdo, BorderLayout.WEST);
