@@ -22,6 +22,7 @@ import CajeroUdec.PanelUser;
 
 public class PanelTarjeta extends JPanel {
 	int ced,saldo,clave;
+	public static int con=2;
 	String ntarj;
 	Array[] resul;
 	Object [] cedula;

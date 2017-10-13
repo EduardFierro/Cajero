@@ -1,11 +1,14 @@
 package CajeroUdec;
 
 import java.awt.Color;
+import java.awt.Event;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -17,6 +20,8 @@ import javax.swing.JTextField;
 
 public class PanelTransfers extends JPanel{
 	public static int valTrans;
+	public static int con=1;
+	public static JTextField nCta; 
 	public static PanelUser panelUser;
 	public static PanelDinero panelDinero;
 	public static PanelConfirmacion panelConfirmacion;
@@ -81,7 +86,7 @@ public class PanelTransfers extends JPanel{
 		constraint.insets = insets;
 		add(numCta, constraint);
 		
-		JTextField nCta = new JTextField();
+		nCta = new JTextField();
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 2;
@@ -141,5 +146,46 @@ public class PanelTransfers extends JPanel{
 				
 			}
 		});
+		nCta.addMouseListener(new MouseListener() {
+			public void actionPerformed(ActionEvent e) {
+				nombreTrans=nom.getText();
+				
+				
+				
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
+	
+		
+	
 }

@@ -19,6 +19,7 @@ import CajeroUdec.PanelTarjeta;
 public class PanelTeclado extends JPanel{
 	public static PanelFunciones panelFunciones;
 	public static VentanaCajero ventanaCajero;
+	public static PanelTransfers panelTransfer;
 	public ArrayList<Character> numCed = new ArrayList<Character>();
 	public char[] ced;
 	String numero="";
@@ -287,7 +288,7 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				
+				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
