@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelConfirmacion extends JPanel{
+	public static int claveconfirm;
+	public static JTextField clave;
 	public PanelConfirmacion() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -31,7 +33,7 @@ public class PanelConfirmacion extends JPanel{
 		constraint.insets = insets;
 		add(titulo, constraint);
 		
-		JTextField clave = new JTextField();
+		clave = new JTextField();
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
@@ -48,5 +50,11 @@ public class PanelConfirmacion extends JPanel{
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(continuar, constraint);
+		
+		
+	}
+	
+	public void ConfirmarClave() {
+		claveconfirm=Integer.parseInt(clave.getText());
 	}
 }

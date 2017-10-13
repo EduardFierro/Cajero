@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class PanelClave extends JPanel{
+
 	public PanelClave() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());

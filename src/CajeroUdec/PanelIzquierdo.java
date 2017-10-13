@@ -17,6 +17,9 @@ public class PanelIzquierdo extends JPanel {
 	public static VentanaCajero ventanaCajero;
 	public static PanelRetiro panelRetiro;
 	public static JButton ok1, ok2, ok3;
+	public static int resulSaldo;
+	public static PanelConsulta panelConsulta;
+	public static PanelTransfers panelTransfers;
 
 	public PanelIzquierdo() {
 		this.setBackground(Color.LIGHT_GRAY);

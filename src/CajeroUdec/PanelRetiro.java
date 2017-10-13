@@ -16,8 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 public class PanelRetiro extends JPanel{
+	public static PanelConfirmacion panelConfirmacion;
 	public static int opcion;
-	
+	public static int resulSaldo;
 	public PanelRetiro() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());

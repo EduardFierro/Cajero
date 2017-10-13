@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelPagos extends JPanel{
+
+	public static PanelConfirmacion panelConfirmacion;
+	public static int resulSaldo;
 	public PanelPagos() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());

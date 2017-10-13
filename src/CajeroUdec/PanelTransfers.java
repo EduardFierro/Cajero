@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -18,8 +19,9 @@ public class PanelTransfers extends JPanel{
 	public static int valTrans;
 	public static PanelUser panelUser;
 	public static PanelDinero panelDinero;
-	int resul;
-	Object[] saldo;
+	public static PanelConfirmacion panelConfirmacion;
+	public static int resulSaldo;
+	int resulClave, claves;
 	String nombreTrans;
 	int numCuenta;
 	public PanelTransfers(){
@@ -120,15 +122,22 @@ public class PanelTransfers extends JPanel{
 				nombreTrans=nom.getText();
 				numCuenta=Integer.parseInt(nCta.getText());
 				valTrans=Integer.parseInt(val.getText());
+				claves=panelConfirmacion.claveconfirm;
+				
 				for (Usuario usuario : PanelUser.user) {
-					Object[] saldo = {usuario.getSaldo()};
-					resul=(int) saldo[0];
+					Object[] clave = {usuario.getClave()};
+					resulClave=(int) clave[0];
 				}
-				if(valTrans<=resul) {
-					panelDinero.msjdinero.setText("Transferencia exitosa");
+				if(claves==resulClave) {
+					if(valTrans<=resulSaldo) {
+						panelDinero.msjdinero.setText("Transferencia exitosa");
+					}else {
+						panelDinero.msjdinero.setText("Transferencia no realizada");
+					}
 				}else {
-					panelDinero.msjdinero.setText("Transferencia no realizada");
+					JOptionPane.showMessageDialog(null, "Clave incorrecta");
 				}
+				
 				
 			}
 		});

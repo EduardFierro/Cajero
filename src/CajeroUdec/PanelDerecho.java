@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 public class PanelDerecho extends JPanel{
+	public static PanelPagos panelPagos;
+	public static PanelClave panelClave;
+	public static PanelRetiro panelRetiro;
 	public static JButton ok1, ok2, ok3;
 	public PanelDerecho() {
 		this.setBackground(Color.LIGHT_GRAY);

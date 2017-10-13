@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelConsulta extends JPanel{
+	public static PanelConfirmacion panelConfirmacion;
+	public static JLabel saldo;
 	public PanelConsulta() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -29,7 +31,7 @@ public class PanelConsulta extends JPanel{
 		constraint.insets = insets;
 		add(titulo, constraint);
 		
-		JLabel saldo = new JLabel("0 pollitos");
+		saldo = new JLabel("0 pollitos");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
