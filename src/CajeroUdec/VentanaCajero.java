@@ -64,7 +64,7 @@ public class VentanaCajero extends JFrame {
 		panelPagos = new PanelPagos();
 		panelClave = new PanelClave();
 		panelFunciones = new PanelFunciones();
-		add(panelInicial, BorderLayout.CENTER);
+		add(panelClave, BorderLayout.CENTER);
 
 	}
 

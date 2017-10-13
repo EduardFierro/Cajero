@@ -11,13 +11,17 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelPagos extends JPanel{
-
+	public static PanelDinero panelDinero;
 	public static PanelConfirmacion panelConfirmacion;
 	public static int resulSaldo;
+	String empresa;
+	int referencia,valor;
+	int resulClave, claves;
 	public PanelPagos() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -105,7 +109,22 @@ public class PanelPagos extends JPanel{
 		
 		continuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				empresa = (String) empresas.getSelectedItem();
+				referencia=Integer.parseInt(nRef.getText());
+				valor=Integer.parseInt(vPag.getText());
+				for (Usuario usuario : PanelUser.user) {
+					Object[] clave = {usuario.getClave()};
+					resulClave=(int) clave[0];
+				}
+				if(claves==resulClave) {
+					if(valor<=resulSaldo) {
+						panelDinero.msjdinero.setText("Pago exitoso");
+					}else {
+						panelDinero.msjdinero.setText("Pago no realizado");
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Clave incorrecta");
+				}
 			}
 		});
 	}
