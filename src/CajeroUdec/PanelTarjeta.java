@@ -1,6 +1,7 @@
 package CajeroUdec;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -8,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 
+import javax.swing.FocusManager;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -22,15 +24,16 @@ import CajeroUdec.PanelUser;
 
 public class PanelTarjeta extends JPanel {
 	int ced,saldo,clave;
-	public static int con=2;
 	String ntarj;
 	Array[] resul;
 	Object [] cedula;
 	String  nom, ape;
 	PanelUser panelUser;
 	VentanaCajero ventana;
+
 	public static JTextField ntarjeta;
 	public PanelTarjeta() {
+		
 		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -56,6 +59,7 @@ public class PanelTarjeta extends JPanel {
 		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(5, 10, 5, 10);
 		constraint.insets = insets;
+		ntarjeta.requestFocus();
 		add(ntarjeta, constraint);
 
 		JButton ok = new JButton(">>");
@@ -77,6 +81,7 @@ public class PanelTarjeta extends JPanel {
 		insets = new Insets(5, 10, 5, 10);
 		constraint.insets = insets;
 		add(agrusuario, constraint);
+		
 
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -116,4 +121,5 @@ public class PanelTarjeta extends JPanel {
 		}
 		);
 	}
+
 }

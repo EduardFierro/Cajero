@@ -1,6 +1,7 @@
 package CajeroUdec;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Event;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,6 +13,7 @@ import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import javax.swing.FocusManager;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,8 +21,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelTransfers extends JPanel{
+	
 	public static int valTrans;
-	public static int con=1;
+	public static JTextField val;
 	public static JTextField nCta; 
 	public static PanelUser panelUser;
 	public static PanelDinero panelDinero;
@@ -30,6 +33,7 @@ public class PanelTransfers extends JPanel{
 	String nombreTrans;
 	int numCuenta;
 	public PanelTransfers(){
+		
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -104,7 +108,7 @@ public class PanelTransfers extends JPanel{
 		constraint.insets = insets;
 		add(valor, constraint);
 		
-		JTextField val = new JTextField();
+		val = new JTextField();
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1; 
 		constraint.gridy = 3;
@@ -121,6 +125,8 @@ public class PanelTransfers extends JPanel{
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(continuar, constraint);
+		
+		
 		
 		continuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -186,6 +192,5 @@ public class PanelTransfers extends JPanel{
 		});
 	}
 	
-		
-	
+
 }
