@@ -23,17 +23,15 @@ import CajeroUdec.PanelUser;
 
 
 public class PanelTarjeta extends JPanel {
+	
 	int ced,saldo,clave;
 	String ntarj;
 	Array[] resul;
 	Object [] cedula;
 	String  nom, ape;
 	PanelUser panelUser;
-	VentanaCajero ventana;
-
 	public static JTextField ntarjeta;
 	public PanelTarjeta() {
-		
 		this.setBackground(Color.LIGHT_GRAY);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -101,17 +99,19 @@ public class PanelTarjeta extends JPanel {
 						ntarj="";
 						ntarjeta.setText("");
 					}finally {
-						for(int i=0;i<resul.length;i++) {
+						
 							if(!ntarj.isEmpty() ) {
 								JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
 							}else {
 								JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
 							}
-						}
+		
 						
 					}
 				}
+				
 			}
+			
 		});
 		
 		agrusuario.addActionListener(new ActionListener() {
