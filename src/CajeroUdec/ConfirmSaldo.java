@@ -91,8 +91,6 @@ public class ConfirmSaldo extends JFrame{
 
 				System.out.println("Clave confirmada");
 				System.out.println("Saldo consultado");
-				System.out.println("Transferencia confirmada");
-				System.out.println("Pago confirmado");
 				
 			}
 		});

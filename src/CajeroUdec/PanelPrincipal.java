@@ -21,7 +21,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho, panelAbajo, panelArriba;
 	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d;
 	public static JTextField msjdinero;
-	int ced, saldo, clave;
+	int ced, saldo, clave, flag=0;
 	String ntarj, nom, ape;
 	Array[] resul;
 	Object[] cedula;
@@ -493,6 +493,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 		cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				flag=0;
 				JLabel imagen = new JLabel();
 				ImageIcon icono = new ImageIcon("images/Funciones.jpg");
 				imagen.setIcon(icono);
@@ -553,43 +554,70 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
-		case "ok1":
-			System.out.println("---RETIRO EN EFECTIVO---");
-			JLabel dinero = new JLabel();
-			ImageIcon icono3 = new ImageIcon("images/Dinero.jpg");
-			dinero.setIcon(icono3);
-			dinero.setAlignmentX(CENTER_ALIGNMENT);
-			panelRetiro.add(dinero, BorderLayout.CENTER);
+		if(flag==0) {
+			switch (e.getActionCommand()) {
+			case "ok1":
+				System.out.println("---RETIRO EN EFECTIVO---");
+				flag++;
+				JLabel dinero = new JLabel();
+				ImageIcon icono3 = new ImageIcon("images/Dinero.jpg");
+				dinero.setIcon(icono3);
+				dinero.setAlignmentX(CENTER_ALIGNMENT);
+				panelRetiro.add(dinero, BorderLayout.CENTER);
 
-			panelInicial.setVisible(false);
-			panelCentro.add(panelRetiro, BorderLayout.CENTER);
-			break;
+				panelInicial.setVisible(false);
+				panelCentro.add(panelRetiro, BorderLayout.CENTER);
+				break;
 
-		case "ok2":
-			System.out.println("---CONSULTA SALDO---");
-			PanelConsulta consul = new PanelConsulta();
-			break;
+			case "ok2":
+				System.out.println("---CONSULTA SALDO---");
+				PanelConsulta consul = new PanelConsulta();
+				break;
 
-		case "ok3":
-			System.out.println("---TRANSFERENCIAS---");
-			PanelTransfers trans = new PanelTransfers();
-			break;
+			case "ok3":
+				System.out.println("---TRANSFERENCIAS---");
+				PanelTransfers trans = new PanelTransfers();
+				break;
 
-		case "ok4":
-			System.out.println("---PAGOS---");
-			PanelPagos pag = new PanelPagos();
-			break;
+			case "ok4":
+				System.out.println("---PAGOS---");
+				PanelPagos pag = new PanelPagos();
+				break;
 
-		case "ok5":
-			System.out.println("---CAMBIO DE CLAVE---");
-			PanelClave cla = new PanelClave();
-			break;
+			case "ok5":
+				System.out.println("---CAMBIO DE CLAVE---");
+				PanelClave cla = new PanelClave();
+				break;
 
-		case "ok6":
+			}
+		}else {
+			switch (e.getActionCommand()) {
+			case "ok1":
+				System.out.println("$600.000");
+				break;
 
-			break;
+			case "ok2":
+				System.out.println("$400.000");
+				break;
+
+			case "ok3":
+				System.out.println("$200.000");
+				break;
+
+			case "ok4":
+				System.out.println("$500.000");
+				break;
+
+			case "ok5":
+				System.out.println("$50.000");
+				break;
+
+			case "ok6":
+				System.out.println("$20.000");
+				break;
+			}
 		}
+		
 
 	}
 
