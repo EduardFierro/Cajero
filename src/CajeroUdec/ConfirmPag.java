@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class ConfirmPag extends JFrame{
@@ -80,8 +81,14 @@ public class ConfirmPag extends JFrame{
 		
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-
+				
+		        	String confir=clave.getText();
+		            if(confir==null ||confir.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo clave vacio");
+			        }else {
+		               	dispose();    
+			        }
+		        
 				System.out.println("Clave confirmada");
 				System.out.println("Saldo consultado");
 				System.out.println("Transferencia confirmada");

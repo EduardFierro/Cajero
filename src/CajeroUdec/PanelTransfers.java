@@ -154,27 +154,43 @@ public class PanelTransfers extends JFrame{
 
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				nombreTrans=nom.getText();
-				numCuenta=Integer.parseInt(nCta.getText());
-				valTrans=Integer.parseInt(val.getText());
-
-				System.out.println("Confirmar clave para transferencia");
-				ConfirmTrans confir = new ConfirmTrans();
 				
-				for (Usuario usuario : PanelUser.user) {
-					Object[] clave = {usuario.getClave()};
-					resulClave=(int) clave[0];
-				}
-				if(claves==resulClave) {
-					if(valTrans<=resulSaldo) {
-						panelPrincipal.msjdinero.setText("Transferencia exitosa");
-					}else {
-						panelPrincipal.msjdinero.setText("Transferencia no realizada");
-					}
-				}else {
-					JOptionPane.showMessageDialog(null, "Clave incorrecta");
-				}
+				
+				System.out.println("Confirmar clave para transferencia");
+				
+				try {
+					nombreTrans=nom.getText();
+					numCuenta=Integer.parseInt(nCta.getText());
+					valTrans=Integer.parseInt(val.getText());
+
+		           
+		            if(nombreTrans==null || nombreTrans.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo nombre vacio");
+		            }else if(numCuenta==0 || nCta.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo numero vacio");
+		            }else if(valTrans==0 ||val.equals("")) {
+		            	JOptionPane.showMessageDialog(null, "Campo apellido vacio");
+			        }else {
+			        	for (Usuario usuario : PanelUser.user) {
+							Object[] clave = {usuario.getClave()};
+							resulClave=(int) clave[0];
+						}
+						if(claves==resulClave) {
+							if(valTrans<=resulSaldo) {
+								panelPrincipal.msjdinero.setText("Transferencia exitosa");
+							}else {
+								panelPrincipal.msjdinero.setText("Transferencia no realizada");
+							}
+						}else {
+							JOptionPane.showMessageDialog(null, "Clave incorrecta");
+						}
+						ConfirmTrans confir = new ConfirmTrans();
+		               	dispose();    
+			        }
+		        } catch (NumberFormatException ed) {
+		            JOptionPane.showMessageDialog(null,"datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
+		        }
+				
 				
 				
 			}
