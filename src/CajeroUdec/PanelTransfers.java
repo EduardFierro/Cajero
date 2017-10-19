@@ -27,7 +27,7 @@ public class PanelTransfers extends JFrame{
 	public static JTextField val;
 	public static JTextField nCta; 
 	public static PanelUser panelUser;
-	public static PanelDinero panelDinero;
+	public static PanelCentro panelPrincipal;
 	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
 	int resulClave, claves;
@@ -168,9 +168,9 @@ public class PanelTransfers extends JFrame{
 				}
 				if(claves==resulClave) {
 					if(valTrans<=resulSaldo) {
-						panelDinero.msjdinero.setText("Transferencia exitosa");
+						panelPrincipal.msjdinero.setText("Transferencia exitosa");
 					}else {
-						panelDinero.msjdinero.setText("Transferencia no realizada");
+						panelPrincipal.msjdinero.setText("Transferencia no realizada");
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Clave incorrecta");

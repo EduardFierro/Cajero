@@ -25,7 +25,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 	String ntarj, nom, ape;
 	Array[] resul;
 	Object[] cedula;
-	public static JTextField ntarjeta;
+	JTextField ntarjeta;
 	String numero = "";
 	String cedul = "";
 
@@ -160,6 +160,91 @@ public class PanelCentro extends JPanel implements ActionListener {
 
 		panelAbajo.setBackground(Color.LIGHT_GRAY);
 		panelAbajo.setLayout(new BorderLayout());
+
+		panelTarjeta.setBackground(Color.LIGHT_GRAY);
+		panelTarjeta.setLayout(new GridBagLayout());
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+
+		JLabel tarjeta = new JLabel("Inserte tarjeta: (C.C)       ");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTarjeta.add(tarjeta, constraint);
+
+		ntarjeta = new JTextField("");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		ntarjeta.requestFocus();
+		panelTarjeta.add(ntarjeta, constraint);
+
+		JButton ok = new JButton(">>");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTarjeta.add(ok, constraint);
+
+		JButton agrusuario = new JButton("AGREGAR USUARIO");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTarjeta.add(agrusuario, constraint);
+
+		ok.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ntarj = ntarjeta.getText();
+				System.out.println(PanelUser.user);
+				for (Usuario usuario : PanelUser.user) {
+					Object[] cedula = { usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
+							usuario.getSaldo(), usuario.getClave() };
+					// resul =(Array[]) cedula;
+				}
+				if (ntarj.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
+				} else {
+					try {
+						ced = Integer.parseInt(ntarjeta.getText());
+					} catch (Exception p) {
+						JOptionPane.showMessageDialog(null, "Número de tarjeta no válido");
+						ntarj = "";
+						ntarjeta.setText("");
+					} finally {
+
+						if (!ntarj.isEmpty()) {
+							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
+						} else {
+							JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
+						}
+
+					}
+				}
+
+			}
+
+		});
+
+		agrusuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PanelUser obj = new PanelUser();
+			}
+		});
 
 		panelTeclado.setBackground(Color.LIGHT_GRAY);
 		panelTeclado.setLayout(new GridBagLayout());
@@ -312,7 +397,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "1";
 				cedul += numero;
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -321,8 +406,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "2";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -331,8 +415,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "3";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -341,8 +424,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "4";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 			}
 
 		});
@@ -350,8 +432,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "5";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -360,8 +441,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "6";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -370,8 +450,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "7";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -380,7 +459,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "8";
 				cedul += numero;
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -389,7 +468,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "9";
 				cedul += numero;
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -398,8 +477,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				numero = "0";
 				cedul += numero;
-
-				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+				ntarjeta.setText(String.valueOf(cedul));
 
 			}
 
@@ -407,7 +485,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 		limpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cedul = "";
-				PanelTarjeta.ntarjeta.setText("");
+				ntarjeta.setText("");
 
 			}
 
@@ -415,7 +493,14 @@ public class PanelCentro extends JPanel implements ActionListener {
 
 		cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				JLabel imagen = new JLabel();
+				ImageIcon icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelInicial.setVisible(false);
+				panelRetiro.setVisible(false);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 			}
 
 		});
@@ -447,96 +532,6 @@ public class PanelCentro extends JPanel implements ActionListener {
 		constraint.insets = insets;
 		panelDinero.add(msjdinero, constraint);
 
-		panelTarjeta.setBackground(Color.LIGHT_GRAY);
-		panelTarjeta.setLayout(new GridBagLayout());
-		constraint = new GridBagConstraints();
-		constraint.gridx = 0;
-		constraint.gridy = 0;
-		constraint.fill = GridBagConstraints.BOTH;
-		insets = new Insets(5, 10, 5, 10);
-		constraint.insets = insets;
-
-		JLabel tarjeta = new JLabel("Inserte tarjeta: (C.C)       ");
-		constraint = new GridBagConstraints();
-		constraint.gridx = 0;
-		constraint.gridy = 0;
-		constraint.fill = GridBagConstraints.BOTH;
-		insets = new Insets(5, 10, 5, 10);
-		constraint.insets = insets;
-		panelTarjeta.add(tarjeta, constraint);
-
-		ntarjeta = new JTextField("");
-		constraint = new GridBagConstraints();
-		constraint.gridx = 0;
-		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.BOTH;
-		insets = new Insets(5, 10, 5, 10);
-		constraint.insets = insets;
-		ntarjeta.requestFocus();
-		panelTarjeta.add(ntarjeta, constraint);
-
-		JButton ok = new JButton(">>");
-		/*
-		 * ImageIcon icono = new ImageIcon("images/Flecha apuntando.gif");
-		 * ok.setIcon(icono);
-		 */
-		constraint = new GridBagConstraints();
-		constraint.gridx = 1;
-		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.BOTH;
-		insets = new Insets(5, 10, 5, 10);
-		constraint.insets = insets;
-		panelTarjeta.add(ok, constraint);
-
-		JButton agrusuario = new JButton("AGREGAR USUARIO");
-		constraint = new GridBagConstraints();
-		constraint.gridx = 0;
-		constraint.gridy = 2;
-		constraint.fill = GridBagConstraints.BOTH;
-		insets = new Insets(5, 10, 5, 10);
-		constraint.insets = insets;
-		panelTarjeta.add(agrusuario, constraint);
-
-		ok.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ntarj = ntarjeta.getText();
-				System.out.println(PanelUser.user);
-				for (Usuario usuario : PanelUser.user) {
-					Object[] cedula = { usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
-							usuario.getSaldo(), usuario.getClave() };
-					// resul =(Array[]) cedula;
-				}
-				if (ntarj.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
-				} else {
-					try {
-						ced = Integer.parseInt(ntarjeta.getText());
-					} catch (Exception p) {
-						JOptionPane.showMessageDialog(null, "Número de tarjeta no válido");
-						ntarj = "";
-						ntarjeta.setText("");
-					} finally {
-
-						if (!ntarj.isEmpty()) {
-							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
-						} else {
-							JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
-						}
-
-					}
-				}
-
-			}
-
-		});
-
-		agrusuario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PanelUser obj = new PanelUser();
-			}
-		});
-		
-		
 		panelArriba.setBackground(Color.LIGHT_GRAY);
 		JLabel logo = new JLabel();
 		ImageIcon iconologo = new ImageIcon("images/logocajero.jpg");
@@ -544,25 +539,17 @@ public class PanelCentro extends JPanel implements ActionListener {
 		logo.setIcon(iconologo);
 		logo.setAlignmentX(CENTER_ALIGNMENT);
 		panelArriba.add(logo);
-		
+
 		panelAbajo.add(panelTeclado, BorderLayout.NORTH);
 		panelAbajo.add(panelDinero, BorderLayout.WEST);
 		panelAbajo.add(panelTarjeta, BorderLayout.EAST);
 
-		panel.add(panelIzquierdo, BorderLayout.EAST);
+		panel.add(panelIzquierdo, BorderLayout.WEST);
 		panel.add(panelCentro, BorderLayout.CENTER);
-		panel.add(panelDerecho, BorderLayout.WEST);
+		panel.add(panelDerecho, BorderLayout.EAST);
 		panel.add(panelAbajo, BorderLayout.SOUTH);
 		panel.add(panelArriba, BorderLayout.NORTH);
 	}
-
-	/*
-	 * public void panelFunciones() { JLabel imagen = new JLabel(); ImageIcon icono
-	 * = new ImageIcon("images/Funciones.jpg"); imagen.setIcon(icono);
-	 * imagen.setAlignmentX(CENTER_ALIGNMENT); panelFunciones.add(imagen,
-	 * BorderLayout.CENTER); panelInicial.setVisible(false);
-	 * panelCentro.add(panelFunciones,BorderLayout.CENTER); }
-	 */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

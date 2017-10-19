@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelPagos extends JFrame{
-	public static PanelDinero panelDinero;
+	public static PanelCentro panelPrincipal;
 	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
 	String empresa;
@@ -150,9 +150,9 @@ public class PanelPagos extends JFrame{
 				}
 				if(claves==resulClave) {
 					if(valor<=resulSaldo) {
-						panelDinero.msjdinero.setText("Pago exitoso");
+						panelPrincipal.msjdinero.setText("Pago exitoso");
 					}else {
-						panelDinero.msjdinero.setText("Pago no realizado");
+						panelPrincipal.msjdinero.setText("Pago no realizado");
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Clave incorrecta");
