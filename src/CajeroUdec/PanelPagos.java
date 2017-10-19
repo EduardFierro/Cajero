@@ -31,7 +31,7 @@ public class PanelPagos extends JFrame{
 	public PanelPagos(String titulo) {
 		super(titulo);
 
-		this.iniciar(); // Configurar mi JFRAME
+		this.iniciar(); 
 		this.configurarPanelPagos();
 
 		this.pack();

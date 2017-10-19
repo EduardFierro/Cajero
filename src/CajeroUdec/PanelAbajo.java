@@ -16,8 +16,6 @@ public class PanelAbajo extends JPanel{
 	PanelDinero panelDinero;
 	PanelTarjeta panelTarjeta;
 	public PanelAbajo() {
-		this.setBackground(Color.LIGHT_GRAY);
-		setLayout(new BorderLayout());
 		panelTeclado = new PanelTeclado();
 		add(panelTeclado, BorderLayout.NORTH);
 		panelDinero = new PanelDinero();

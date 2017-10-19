@@ -25,11 +25,9 @@ import CajeroUdec.PanelUser;
 public class PanelTarjeta extends JPanel {
 	
 	int ced,saldo,clave;
-	String ntarj;
+	String ntarj, nom, ape;
 	Array[] resul;
 	Object [] cedula;
-	String  nom, ape;
-	PanelUser panelUser;
 	public static JTextField ntarjeta;
 	public PanelTarjeta() {
 		this.setBackground(Color.LIGHT_GRAY);

@@ -26,11 +26,8 @@ public class PanelTeclado extends JPanel{
 	public static PanelTransfers panelTransfer;
 	public static PanelTarjeta panelTarjeta;
 	public static PanelCentro panelCentro;
-	public ArrayList<Character> numCed = new ArrayList<Character>();
-	public char[] ced;
 	String numero="";
 	String cedul="";
-	String cedul1="";
 	
 	public PanelTeclado() {
 		this.setBackground(Color.LIGHT_GRAY);
@@ -291,7 +288,6 @@ public class PanelTeclado extends JPanel{
 		limpiar.addActionListener (new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				cedul="";
-				cedul1="";
 				PanelTarjeta.ntarjeta.setText("");
 				
 			}

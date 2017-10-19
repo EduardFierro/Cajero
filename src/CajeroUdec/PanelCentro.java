@@ -7,28 +7,44 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelCentro extends JPanel implements ActionListener {
-	private JPanel panelInicial, panelRetiro, panelDinero, panelFunciones;
-	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho;
+	private JPanel panelInicial, panelRetiro, panelFunciones, panelTeclado, panelTarjeta, panelDinero;
+	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho, panelAbajo, panelArriba;
 	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d;
+	public static JTextField msjdinero;
+	int ced, saldo, clave;
+	String ntarj, nom, ape;
+	Array[] resul;
+	Object[] cedula;
+	public static JTextField ntarjeta;
+	String numero = "";
+	String cedul = "";
 
 	public PanelCentro() {
 		this.setBackground(Color.LIGHT_GRAY);
 		panelInicial = new JPanel();
 		panelRetiro = new JPanel();
-		panelDinero = new JPanel();
 		panelFunciones = new JPanel();
+		panelTeclado = new JPanel();
+		panelTarjeta = new JPanel();
+		panelDinero = new JPanel();
 		panel = new JPanel();
 		panelIzquierdo = new JPanel();
 		panelCentro = new JPanel();
 		panelDerecho = new JPanel();
+		panelAbajo = new JPanel();
+		panelArriba = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setLayout(new BorderLayout());
 		add(panel);
 		panelIzquierdo.setBackground(Color.LIGHT_GRAY);
 		panelIzquierdo.setLayout(new GridBagLayout());
@@ -72,7 +88,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 		insets = new Insets(20, 10, 20, 10);
 		constraint.insets = insets;
 		panelIzquierdo.add(ok3_i, constraint);
-		
+
 		JLabel spacewhite1 = new JLabel("                    ");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1;
@@ -134,43 +150,433 @@ public class PanelCentro extends JPanel implements ActionListener {
 		constraint.insets = insets;
 		panelDerecho.add(spacewhite2, constraint);
 
-
 		panelCentro.setBackground(Color.black);
 		JLabel imagen = new JLabel();
 		icono = new ImageIcon("images/bienvenidousuario.jpg");
 		imagen.setIcon(icono);
 		imagen.setAlignmentX(CENTER_ALIGNMENT);
 		panelInicial.add(imagen, BorderLayout.CENTER);
-		panelCentro.add(panelInicial,BorderLayout.CENTER);
+		panelCentro.add(panelInicial, BorderLayout.CENTER);
+
+		panelAbajo.setBackground(Color.LIGHT_GRAY);
+		panelAbajo.setLayout(new BorderLayout());
+
+		panelTeclado.setBackground(Color.LIGHT_GRAY);
+		panelTeclado.setLayout(new GridBagLayout());
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+
+		JButton uno = new JButton("1");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(uno, constraint);
+
+		JButton dos = new JButton("2");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(dos, constraint);
+
+		JButton tres = new JButton("3");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 2;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(tres, constraint);
+
+		JButton cuatro = new JButton("4");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(cuatro, constraint);
+
+		JButton cinco = new JButton("5");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(cinco, constraint);
+
+		JButton seis = new JButton("6");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 2;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(seis, constraint);
+
+		JButton siete = new JButton("7");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(siete, constraint);
+
+		JButton ocho = new JButton("8");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1;
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(ocho, constraint);
+
+		JButton nueve = new JButton("9");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 2;
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(nueve, constraint);
+
+		JButton asterisco = new JButton("*");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 3;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(asterisco, constraint);
+
+		JButton cero = new JButton("0");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1;
+		constraint.gridy = 3;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(cero, constraint);
+
+		JButton numeral = new JButton("#");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 2;
+		constraint.gridy = 3;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(numeral, constraint);
+
+		JButton cancelar = new JButton("CANCELAR");
+		cancelar.setBackground(java.awt.Color.red);
+		constraint = new GridBagConstraints();
+		constraint.gridx = 3;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(cancelar, constraint);
+
+		JButton limpiar = new JButton("LIMPIAR");
+		limpiar.setBackground(java.awt.Color.yellow);
+		constraint = new GridBagConstraints();
+		constraint.gridx = 3;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(limpiar, constraint);
+
+		JButton salir = new JButton("SALIR");
+		salir.setBackground(java.awt.Color.green);
+		constraint = new GridBagConstraints();
+		constraint.gridx = 3;
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTeclado.add(salir, constraint);
+
+		uno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "1";
+				cedul += numero;
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		dos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "2";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		tres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "3";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		cuatro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "4";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+			}
+
+		});
+		cinco.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "5";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		seis.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "6";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		siete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "7";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		ocho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "8";
+				cedul += numero;
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		nueve.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "9";
+				cedul += numero;
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		cero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				numero = "0";
+				cedul += numero;
+
+				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
+
+			}
+
+		});
+		limpiar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cedul = "";
+				PanelTarjeta.ntarjeta.setText("");
+
+			}
+
+		});
+
+		cancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+
+		});
+
+		panelDinero.setBackground(Color.LIGHT_GRAY);
+		panelDinero.setLayout(new GridBagLayout());
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+
+		JLabel dinero = new JLabel("Retire su dinero:                                                  ");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelDinero.add(dinero, constraint);
+
+		msjdinero = new JTextField("");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelDinero.add(msjdinero, constraint);
+
+		panelTarjeta.setBackground(Color.LIGHT_GRAY);
+		panelTarjeta.setLayout(new GridBagLayout());
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+
+		JLabel tarjeta = new JLabel("Inserte tarjeta: (C.C)       ");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTarjeta.add(tarjeta, constraint);
+
+		ntarjeta = new JTextField("");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		ntarjeta.requestFocus();
+		panelTarjeta.add(ntarjeta, constraint);
+
+		JButton ok = new JButton(">>");
+		/*
+		 * ImageIcon icono = new ImageIcon("images/Flecha apuntando.gif");
+		 * ok.setIcon(icono);
+		 */
+		constraint = new GridBagConstraints();
+		constraint.gridx = 1;
+		constraint.gridy = 1;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTarjeta.add(ok, constraint);
+
+		JButton agrusuario = new JButton("AGREGAR USUARIO");
+		constraint = new GridBagConstraints();
+		constraint.gridx = 0;
+		constraint.gridy = 2;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+		panelTarjeta.add(agrusuario, constraint);
+
+		ok.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ntarj = ntarjeta.getText();
+				System.out.println(PanelUser.user);
+				for (Usuario usuario : PanelUser.user) {
+					Object[] cedula = { usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
+							usuario.getSaldo(), usuario.getClave() };
+					// resul =(Array[]) cedula;
+				}
+				if (ntarj.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
+				} else {
+					try {
+						ced = Integer.parseInt(ntarjeta.getText());
+					} catch (Exception p) {
+						JOptionPane.showMessageDialog(null, "Número de tarjeta no válido");
+						ntarj = "";
+						ntarjeta.setText("");
+					} finally {
+
+						if (!ntarj.isEmpty()) {
+							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
+						} else {
+							JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
+						}
+
+					}
+				}
+
+			}
+
+		});
+
+		agrusuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PanelUser obj = new PanelUser();
+			}
+		});
+		
+		
+		panelArriba.setBackground(Color.LIGHT_GRAY);
+		JLabel logo = new JLabel();
+		ImageIcon iconologo = new ImageIcon("images/logocajero.jpg");
+
+		logo.setIcon(iconologo);
+		logo.setAlignmentX(CENTER_ALIGNMENT);
+		panelArriba.add(logo);
+		
+		panelAbajo.add(panelTeclado, BorderLayout.NORTH);
+		panelAbajo.add(panelDinero, BorderLayout.WEST);
+		panelAbajo.add(panelTarjeta, BorderLayout.EAST);
 
 		panel.add(panelIzquierdo, BorderLayout.EAST);
 		panel.add(panelCentro, BorderLayout.CENTER);
 		panel.add(panelDerecho, BorderLayout.WEST);
+		panel.add(panelAbajo, BorderLayout.SOUTH);
+		panel.add(panelArriba, BorderLayout.NORTH);
 	}
-	
-	/*public void panelFunciones() {
-		JLabel imagen = new JLabel();
-		ImageIcon icono = new ImageIcon("images/Funciones.jpg");
-		imagen.setIcon(icono);
-		imagen.setAlignmentX(CENTER_ALIGNMENT);
-		panelFunciones.add(imagen, BorderLayout.CENTER);
-		panelInicial.setVisible(false);
-		panelCentro.add(panelFunciones,BorderLayout.CENTER);
-	}*/
-	
+
+	/*
+	 * public void panelFunciones() { JLabel imagen = new JLabel(); ImageIcon icono
+	 * = new ImageIcon("images/Funciones.jpg"); imagen.setIcon(icono);
+	 * imagen.setAlignmentX(CENTER_ALIGNMENT); panelFunciones.add(imagen,
+	 * BorderLayout.CENTER); panelInicial.setVisible(false);
+	 * panelCentro.add(panelFunciones,BorderLayout.CENTER); }
+	 */
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "ok1":
 			System.out.println("---RETIRO EN EFECTIVO---");
-			JLabel dinero = new JLabel( );
-	        ImageIcon icono3 = new ImageIcon("images/Dinero.jpg");
-	        dinero.setIcon( icono3 );
-	        dinero.setAlignmentX(CENTER_ALIGNMENT);
-	        panelRetiro.add(dinero, BorderLayout.CENTER);
-	        
-	        panelInicial.setVisible(false);
-	        panelCentro.add(panelRetiro,BorderLayout.CENTER);
+			JLabel dinero = new JLabel();
+			ImageIcon icono3 = new ImageIcon("images/Dinero.jpg");
+			dinero.setIcon(icono3);
+			dinero.setAlignmentX(CENTER_ALIGNMENT);
+			panelRetiro.add(dinero, BorderLayout.CENTER);
+
+			panelInicial.setVisible(false);
+			panelCentro.add(panelRetiro, BorderLayout.CENTER);
 			break;
 
 		case "ok2":
