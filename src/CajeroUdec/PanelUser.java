@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -173,12 +174,39 @@ public class PanelUser extends JFrame{
 		
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
 				
-				Usuario us = new Usuario(Integer.parseInt(ced.getText()),nom.getText(),ape.getText(),cla.getText(),Integer.parseInt(sald.getText()));
-				user.add(us);
+				try {
+		            int cedula=Integer.parseInt(ced.getText());
+		            String nombre=nom.getText();
+		            String apellido=ape.getText();
+		            String clave=cla.getText();
+		            int saldo=Integer.parseInt(sald.getText());
+		            if(cedula==0 || ced.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo cedula vacio");
+		            }else if(nombre==null || nombre.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo nombre vacio");
+		            }else if(apellido==null ||apellido.equals("")) {
+		            	JOptionPane.showMessageDialog(null, "Campo apellido vacio");
+		            }else if(clave==null || clave.equals("")) {
+		            	JOptionPane.showMessageDialog(null, "Campo clave vacio");
+		            }else if(saldo==0 || sald.equals("")) {
+		            	JOptionPane.showMessageDialog(null, "Campo saldo vacio");
+			        }else {
+			        	Usuario us = new Usuario(cedula,nombre,apellido,clave,saldo);
+			        	user.add(us);
+						
+			        	System.out.println(user);
+			        	ced.setText("");
+			        	nom.setText("");
+		               	ape.setText("");
+		               	cla.setText("");
+		               	sald.setText("");
+		               	dispose();    
+			        }
+		        } catch (NumberFormatException ed) {
+		            JOptionPane.showMessageDialog(null,"datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
+		        }
 				
-				System.out.println(user);
 			}
 		}
 		);
