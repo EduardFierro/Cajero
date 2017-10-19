@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelPagos extends JFrame{
-	public static PanelCentro panelPrincipal;
+	public static PanelPrincipal panelPrincipal;
 	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
 	String empresa;

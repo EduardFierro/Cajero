@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class VentanaCajero extends JFrame {
-	public static PanelCentro panelCentro;
+	public static PanelPrincipal panelPrincipal;
 
 	VentanaCajero() {
 		super("CAJERO UDEC");
@@ -31,8 +31,8 @@ public class VentanaCajero extends JFrame {
 
 	public void componentes() {
 
-		panelCentro = new PanelCentro();
-		add(panelCentro);
+		panelPrincipal = new PanelPrincipal();
+		add(panelPrincipal);
 		
 	}
 

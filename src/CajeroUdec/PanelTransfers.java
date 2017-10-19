@@ -27,7 +27,7 @@ public class PanelTransfers extends JFrame{
 	public static JTextField val;
 	public static JTextField nCta; 
 	public static PanelUser panelUser;
-	public static PanelCentro panelPrincipal;
+	public static PanelPrincipal panelPrincipal;
 	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
 	int resulClave, claves;

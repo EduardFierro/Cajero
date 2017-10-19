@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelCentro extends JPanel implements ActionListener {
+public class PanelPrincipal extends JPanel implements ActionListener {
 	private JPanel panelInicial, panelRetiro, panelFunciones, panelTeclado, panelTarjeta, panelDinero;
 	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho, panelAbajo, panelArriba;
 	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d;
@@ -29,7 +29,7 @@ public class PanelCentro extends JPanel implements ActionListener {
 	String numero = "";
 	String cedul = "";
 
-	public PanelCentro() {
+	public PanelPrincipal() {
 		this.setBackground(Color.LIGHT_GRAY);
 		panelInicial = new JPanel();
 		panelRetiro = new JPanel();
