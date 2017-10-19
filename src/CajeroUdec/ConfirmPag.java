@@ -11,26 +11,26 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class PanelConsulta extends JFrame{
-	public static ConfirmSaldo panelConfirmacion;
-	public static JLabel saldo;
-	public PanelConsulta() {
-		this("Consulta saldo");
+public class ConfirmPag extends JFrame{
+	public static int claveconfirm;
+	public static JTextField clave;
+	public ConfirmPag() {
+		this("Confirmación clave");
 	}
 
-	public PanelConsulta(String titulo) {
+	public ConfirmPag(String titulo) {
 		super(titulo);
 
 		this.iniciar(); // Configurar mi JFRAME
-		this.configurarPanelConsulta();
+		this.configurarPanelConfirmacion();
 
 		this.pack();
 		this.setVisible(true);
 	}
 
-	private PanelConsulta iniciar() {
+	private ConfirmPag iniciar() {
 		Dimension dims = new Dimension(400, 350);
 		this.setSize(dims);
 		this.setPreferredSize(dims);
@@ -40,8 +40,7 @@ public class PanelConsulta extends JFrame{
 
 		return this;
 	}
-	private void configurarPanelConsulta() {
-	
+	private void configurarPanelConfirmacion() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -51,7 +50,7 @@ public class PanelConsulta extends JFrame{
 		Insets insets = new Insets(40, 50, 40, 50);
 		constraint.insets = insets;
 		
-		JLabel titulo = new JLabel("Tu saldo actual es:");
+		JLabel titulo = new JLabel("Digita tu clave, por favor");
 		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
@@ -61,32 +60,39 @@ public class PanelConsulta extends JFrame{
 		constraint.insets = insets;
 		add(titulo, constraint);
 		
-		saldo = new JLabel("0 pollitos");
+		clave = new JTextField();
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(saldo, constraint);
+		add(clave, constraint);
 		
-		JButton continuar = new JButton("CONTINUAR");
-		continuar.setForeground(Color.blue);
+		JButton aceptar = new JButton("ACEPTAR");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH; 
-		insets = new Insets(5, 10, 5, 10);
+		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(continuar, constraint);
+		add(aceptar, constraint);
 		
-		continuar.addActionListener(new ActionListener() {
+		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				System.out.println("Confirmar clave para consulta");
-				ConfirmSaldo confir = new ConfirmSaldo();
+
+				System.out.println("Clave confirmada");
+				System.out.println("Saldo consultado");
+				System.out.println("Transferencia confirmada");
+				System.out.println("Pago confirmado");
+				
 			}
-		}
-		);
+		});
+		
+	}
+	
+	public void ConfirmarClave() {
+		claveconfirm=Integer.parseInt(clave.getText());
 	}
 }

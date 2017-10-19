@@ -14,15 +14,18 @@ import javax.swing.BorderFactory;
 import javax.swing.FocusManager;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import CajeroUdec.PanelTarjeta;
 public class PanelTeclado extends JPanel{
-	public static PanelFunciones panelFunciones;
 	public static VentanaCajero ventanaCajero;
 	public static PanelTransfers panelTransfer;
 	public static PanelTarjeta panelTarjeta;
+	public static PanelCentro panelCentro;
 	public ArrayList<Character> numCed = new ArrayList<Character>();
 	public char[] ced;
 	String numero="";
@@ -182,7 +185,6 @@ public class PanelTeclado extends JPanel{
 					numero ="1";
 					cedul+=numero;
 		        	PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-		        	panelTransfer.nCta.setText(String.valueOf(cedul1));
 		
 			}
 			
@@ -194,7 +196,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
@@ -206,7 +207,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
@@ -218,8 +218,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
-				
 			}
 			
 		}
@@ -230,7 +228,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
@@ -242,7 +239,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
@@ -254,7 +250,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
@@ -264,7 +259,6 @@ public class PanelTeclado extends JPanel{
 			public void actionPerformed(ActionEvent e){
 				numero ="8";
 				cedul+=numero;
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
 				
 				
@@ -276,7 +270,6 @@ public class PanelTeclado extends JPanel{
 			public void actionPerformed(ActionEvent e){
 				numero ="9";
 				cedul+=numero;
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
 				
 				
@@ -290,7 +283,6 @@ public class PanelTeclado extends JPanel{
 				cedul+=numero;
 				
 				PanelTarjeta.ntarjeta.setText(String.valueOf(cedul));
-				panelTransfer.nCta.setText(String.valueOf(cedul));
 				
 			}
 			
@@ -301,7 +293,6 @@ public class PanelTeclado extends JPanel{
 				cedul="";
 				cedul1="";
 				PanelTarjeta.ntarjeta.setText("");
-				panelTransfer.nCta.setText("");
 				
 			}
 			
@@ -310,10 +301,6 @@ public class PanelTeclado extends JPanel{
 		
 		cancelar.addActionListener (new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				ventanaCajero.removeAll();
-				ventanaCajero.add(panelFunciones,BorderLayout.CENTER);
-				ventanaCajero.revalidate();
-				ventanaCajero.repaint();
 				
 			}
 			

@@ -3,6 +3,7 @@ package CajeroUdec;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Event;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -15,25 +16,48 @@ import java.util.ArrayList;
 
 import javax.swing.FocusManager;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelTransfers extends JPanel{
-	
+public class PanelTransfers extends JFrame{
 	public static int valTrans;
 	public static JTextField val;
 	public static JTextField nCta; 
 	public static PanelUser panelUser;
 	public static PanelDinero panelDinero;
-	public static PanelConfirmacion panelConfirmacion;
+	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
 	int resulClave, claves;
 	String nombreTrans;
 	int numCuenta;
 	public PanelTransfers(){
-		
+		this("Transferencias");
+	}
+
+	public PanelTransfers(String titulo) {
+		super(titulo);
+
+		this.iniciar(); // Configurar mi JFRAME
+		this.configurarPanelTransfers();
+
+		this.pack();
+		this.setVisible(true);
+	}
+
+	private PanelTransfers iniciar() {
+		Dimension dims = new Dimension(400, 350);
+		this.setSize(dims);
+		this.setPreferredSize(dims);
+		this.getContentPane().setLayout(null);
+		this.getContentPane().setBackground(Color.LIGHT_GRAY);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		return this;
+	}
+	private void configurarPanelTransfers() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -117,23 +141,26 @@ public class PanelTransfers extends JPanel{
 		constraint.insets = insets;
 		add(val, constraint);
 		
-		JButton continuar = new JButton("CONTINUAR");
+		JButton aceptar = new JButton("CONTINUAR");
+		aceptar.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 4;
 		constraint.fill = GridBagConstraints.BOTH; 
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(continuar, constraint);
+		add(aceptar, constraint);
 		
-		
-		
-		continuar.addActionListener(new ActionListener() {
+
+		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				nombreTrans=nom.getText();
 				numCuenta=Integer.parseInt(nCta.getText());
 				valTrans=Integer.parseInt(val.getText());
-				claves=panelConfirmacion.claveconfirm;
+
+				System.out.println("Confirmar clave para transferencia");
+				ConfirmTrans confir = new ConfirmTrans();
 				
 				for (Usuario usuario : PanelUser.user) {
 					Object[] clave = {usuario.getClave()};
@@ -149,44 +176,6 @@ public class PanelTransfers extends JPanel{
 					JOptionPane.showMessageDialog(null, "Clave incorrecta");
 				}
 				
-				
-			}
-		});
-		nCta.addMouseListener(new MouseListener() {
-			public void actionPerformed(ActionEvent e) {
-				nombreTrans=nom.getText();
-				
-				
-				
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});

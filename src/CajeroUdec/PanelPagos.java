@@ -1,6 +1,7 @@
 package CajeroUdec;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -10,19 +11,44 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelPagos extends JPanel{
+public class PanelPagos extends JFrame{
 	public static PanelDinero panelDinero;
-	public static PanelConfirmacion panelConfirmacion;
+	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
 	String empresa;
 	int referencia,valor;
 	int resulClave, claves;
 	public PanelPagos() {
+		this("Pagos");
+	}
+
+	public PanelPagos(String titulo) {
+		super(titulo);
+
+		this.iniciar(); // Configurar mi JFRAME
+		this.configurarPanelPagos();
+
+		this.pack();
+		this.setVisible(true);
+	}
+
+	private PanelPagos iniciar() {
+		Dimension dims = new Dimension(400, 350);
+		this.setSize(dims);
+		this.setPreferredSize(dims);
+		this.getContentPane().setLayout(null);
+		this.getContentPane().setBackground(Color.LIGHT_GRAY);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		return this;
+	}
+	private void configurarPanelPagos() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -99,6 +125,7 @@ public class PanelPagos extends JPanel{
 		add(vPag, constraint);
 		
 		JButton continuar = new JButton("CONTINUAR");
+		continuar.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 4;
@@ -109,9 +136,14 @@ public class PanelPagos extends JPanel{
 		
 		continuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				empresa = (String) empresas.getSelectedItem();
 				referencia=Integer.parseInt(nRef.getText());
 				valor=Integer.parseInt(vPag.getText());
+				System.out.println("Clave por confirmar para pago");
+				ConfirmPag confir = new ConfirmPag();
+				confir.setVisible(true);
+				
 				for (Usuario usuario : PanelUser.user) {
 					Object[] clave = {usuario.getClave()};
 					resulClave=(int) clave[0];
