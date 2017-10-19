@@ -87,7 +87,7 @@ public class PanelTarjeta extends JPanel {
 				System.out.println(PanelUser.user);
 				for (Usuario usuario : PanelUser.user) {
 					Object[] cedula = {usuario.getCedula(),usuario.getNombre(),usuario.getApellido(),usuario.getSaldo(),usuario.getClave()};
-					resul =(Array[]) cedula;
+					//resul =(Array[]) cedula;
 				}
 				if(ntarj.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
@@ -100,7 +100,7 @@ public class PanelTarjeta extends JPanel {
 						ntarjeta.setText("");
 					}finally {
 						
-							if(!ntarj.isEmpty() ) {
+							if(!ntarj.isEmpty()  ) {
 								JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
 							}else {
 								JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
