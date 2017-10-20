@@ -136,27 +136,42 @@ public class PanelPagos extends JFrame{
 		
 		continuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				empresa = (String) empresas.getSelectedItem();
-				referencia=Integer.parseInt(nRef.getText());
-				valor=Integer.parseInt(vPag.getText());
-				System.out.println("Clave por confirmar para pago");
-				ConfirmPag confir = new ConfirmPag();
-				confir.setVisible(true);
+				try {
+					empresa = (String) empresas.getSelectedItem();
+					referencia=Integer.parseInt(nRef.getText());
+					valor=Integer.parseInt(vPag.getText());
+		            if(empresa=="Seleccionar" || empresas.equals("Seleccionar")){
+		            	JOptionPane.showMessageDialog(null, "Seleccione una empresa");
+		            }else if(referencia==0 || nRef.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo referencia vacio");
+		            }else if(valor==0 ||vPag.equals("")) {
+		            	JOptionPane.showMessageDialog(null, "Campo valor vacio");
+			        }else {
+			        	for (Usuario usuario : PanelUser.user) {
+							Object[] clave = {usuario.getClave()};
+							resulClave=(int) clave[0];
+						}
+						if(claves==resulClave) {
+							if(valor<=resulSaldo) {
+								panelPrincipal.msjdinero.setText("Pago exitoso");
+							}else {
+								panelPrincipal.msjdinero.setText("Pago no realizado");
+							}
+						}else {
+							JOptionPane.showMessageDialog(null, "Clave incorrecta");
+						}
+						System.out.println("Clave por confirmar para pago");
+						ConfirmPag confir = new ConfirmPag();
+						confir.setVisible(true);
+		               	dispose();    
+			        }
+		        } catch (NumberFormatException ed) {
+		            JOptionPane.showMessageDialog(null,"datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
+		        }
 				
-				for (Usuario usuario : PanelUser.user) {
-					Object[] clave = {usuario.getClave()};
-					resulClave=(int) clave[0];
-				}
-				if(claves==resulClave) {
-					if(valor<=resulSaldo) {
-						panelPrincipal.msjdinero.setText("Pago exitoso");
-					}else {
-						panelPrincipal.msjdinero.setText("Pago no realizado");
-					}
-				}else {
-					JOptionPane.showMessageDialog(null, "Clave incorrecta");
-				}
+				
+				
+				
 			}
 		});
 	}
