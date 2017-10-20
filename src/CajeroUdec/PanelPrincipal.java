@@ -557,36 +557,61 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		if(flag==0) {
 			switch (e.getActionCommand()) {
 			case "ok1":
-				System.out.println("---RETIRO EN EFECTIVO---");
-				flag++;
-				JLabel dinero = new JLabel();
-				ImageIcon icono3 = new ImageIcon("images/Dinero.jpg");
-				dinero.setIcon(icono3);
-				dinero.setAlignmentX(CENTER_ALIGNMENT);
-				panelRetiro.add(dinero, BorderLayout.CENTER);
+				if(PanelUser.user.size()==0) {
+					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+				}else {
+					System.out.println("---RETIRO EN EFECTIVO---");
+					flag++;
+					JLabel dinero = new JLabel();
+					ImageIcon icono3 = new ImageIcon("images/Dinero.jpg");
+					dinero.setIcon(icono3);
+					dinero.setAlignmentX(CENTER_ALIGNMENT);
+					panelRetiro.add(dinero, BorderLayout.CENTER);
 
-				panelInicial.setVisible(false);
-				panelCentro.add(panelRetiro, BorderLayout.CENTER);
+					panelInicial.setVisible(false);
+					panelCentro.add(panelRetiro, BorderLayout.CENTER);
+				}
+				
 				break;
 
 			case "ok2":
-				System.out.println("---CONSULTA SALDO---");
-				ConfirmSaldo saldo = new ConfirmSaldo();
+				if(PanelUser.user.size()==0) {
+					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+				}else {
+					System.out.println("---CONSULTA SALDO---");
+					ConfirmSaldo saldo = new ConfirmSaldo();
+				}
+				
 				break;
 
 			case "ok3":
-				System.out.println("---TRANSFERENCIAS---");
-				PanelTransfers trans = new PanelTransfers();
+				if(PanelUser.user.size()==0) {
+					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+				}else {
+					System.out.println("---TRANSFERENCIAS---");
+					PanelTransfers trans = new PanelTransfers();
+				}
+				
 				break;
 
 			case "ok4":
-				System.out.println("---PAGOS---");
-				PanelPagos pag = new PanelPagos();
+				if(PanelUser.user.size()==0) {
+					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+				}else {
+					System.out.println("---PAGOS---");
+					PanelPagos pag = new PanelPagos();
+				}
+				
 				break;
 
 			case "ok5":
-				System.out.println("---CAMBIO DE CLAVE---");
-				PanelClave cla = new PanelClave();
+				if(PanelUser.user.size()==0) {
+					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+				}else {
+					System.out.println("---CAMBIO DE CLAVE---");
+					PanelClave cla = new PanelClave();
+				}
+				
 				break;
 
 			}
