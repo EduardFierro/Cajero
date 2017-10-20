@@ -517,6 +517,16 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 			}
 
 		});
+		salir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cedul = "";
+				ntarjeta.setText("");
+				panelFunciones.setVisible(false);
+				panelRetiro.setVisible(false);
+				panelInicial.setVisible(true);
+			}
+
+		});
 
 		panelDinero.setBackground(Color.LIGHT_GRAY);
 		panelDinero.setLayout(new GridBagLayout());
