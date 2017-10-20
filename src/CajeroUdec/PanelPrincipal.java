@@ -21,7 +21,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho, panelAbajo, panelArriba;
 	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d;
 	public static JTextField msjdinero;
-	int ced, saldo, clave, flag=0;
+	int ced, saldo, clave, flag=0,aux=0;
 	String ntarj, nom, ape;
 	Array[] resul;
 	Object[] cedula;
@@ -222,6 +222,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 					} finally {
 
 						if (!ntarj.isEmpty() && ced==PanelUser.resulCedula){
+							aux=Integer.parseInt(ntarjeta.getText());
 							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
 							JLabel imagen = new JLabel();
 							ImageIcon icono = new ImageIcon("images/Funciones.jpg");
@@ -499,15 +500,20 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 		cancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				flag=0;
-				JLabel imagen = new JLabel();
-				ImageIcon icono = new ImageIcon("images/Funciones.jpg");
-				imagen.setIcon(icono);
-				imagen.setAlignmentX(CENTER_ALIGNMENT);
-				panelFunciones.add(imagen, BorderLayout.CENTER);
-				panelInicial.setVisible(false);
-				panelRetiro.setVisible(false);
-				panelCentro.add(panelFunciones, BorderLayout.CENTER);
+				if(PanelUser.user.size()==0||aux==0) {
+					JOptionPane.showMessageDialog(null, "Agregue un usuario/inserte tarjeta");
+				}else {
+					flag=0;
+					JLabel imagen = new JLabel();
+					ImageIcon icono = new ImageIcon("images/Funciones.jpg");
+					imagen.setIcon(icono);
+					imagen.setAlignmentX(CENTER_ALIGNMENT);
+					panelFunciones.add(imagen, BorderLayout.CENTER);
+					panelInicial.setVisible(false);
+					panelRetiro.setVisible(false);
+					panelCentro.add(panelFunciones, BorderLayout.CENTER);
+				}
+				
 			}
 
 		});
