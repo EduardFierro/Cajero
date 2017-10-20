@@ -558,7 +558,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 			switch (e.getActionCommand()) {
 			case "ok1":
 				if(PanelUser.user.size()==0) {
-					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+					JOptionPane.showMessageDialog(null, "Agregue un usuario");
 				}else {
 					System.out.println("---RETIRO EN EFECTIVO---");
 					flag++;
@@ -576,7 +576,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 			case "ok2":
 				if(PanelUser.user.size()==0) {
-					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+					JOptionPane.showMessageDialog(null, "Agregue un usuario");
 				}else {
 					System.out.println("---CONSULTA SALDO---");
 					ConfirmSaldo saldo = new ConfirmSaldo();
@@ -586,7 +586,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 			case "ok3":
 				if(PanelUser.user.size()==0) {
-					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+					JOptionPane.showMessageDialog(null, "Agregue un usuario");
 				}else {
 					System.out.println("---TRANSFERENCIAS---");
 					PanelTransfers trans = new PanelTransfers();
@@ -596,7 +596,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 			case "ok4":
 				if(PanelUser.user.size()==0) {
-					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+					JOptionPane.showMessageDialog(null, "Agregue un usuario");
 				}else {
 					System.out.println("---PAGOS---");
 					PanelPagos pag = new PanelPagos();
@@ -606,7 +606,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 			case "ok5":
 				if(PanelUser.user.size()==0) {
-					JOptionPane.showMessageDialog(null, "Agrege un usuario");
+					JOptionPane.showMessageDialog(null, "Agregue un usuario");
 				}else {
 					System.out.println("---CAMBIO DE CLAVE---");
 					PanelClave cla = new PanelClave();
