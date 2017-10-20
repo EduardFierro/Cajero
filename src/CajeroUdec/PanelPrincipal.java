@@ -210,12 +210,6 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ntarj = ntarjeta.getText();
-				System.out.println(PanelUser.user);
-				for (Usuario usuario : PanelUser.user) {
-					Object[] cedula = { usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
-							usuario.getSaldo(), usuario.getClave() };
-					// resul =(Array[]) cedula;
-				}
 				if (ntarj.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "No ha ingresado número de tarjeta");
 				} else {
@@ -227,10 +221,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 						ntarjeta.setText("");
 					} finally {
 
-						if (!ntarj.isEmpty()) {
+						if (!ntarj.isEmpty() && ced==PanelUser.resulCedula){
 							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
+							ntarj = "";
+							ntarjeta.setText("");
 						} else {
 							JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
+							ntarj = "";
+							ntarjeta.setText("");
 						}
 
 					}
