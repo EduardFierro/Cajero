@@ -19,8 +19,8 @@ import javax.swing.JTextField;
 public class PanelClave extends JFrame{
 	public static ConfirmSaldo panelConfirmacion;
 	public static PanelUser panelUser;
-	int contrAct, contrNue;
-	int resulClave, claves;
+	public static PanelPrincipal panelPrincipal;
+	String contrAct, contrNue;
 	public PanelClave() {
 		this("Cambio de clave");
 	}
@@ -123,21 +123,16 @@ public class PanelClave extends JFrame{
 		
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				contrAct=Integer.parseInt(conAct.getText());
-				contrNue=Integer.parseInt(conNue.getText());
 				
-				for (Usuario usuario : PanelUser.user) {
-					Object[] clave = {usuario.getClave()};
-					resulClave=(int) clave[0];
-				}
-				if(claves==resulClave) {
+				contrAct=conAct.getText();
+				contrNue=conNue.getText();
+				
+				if(contrAct.equals(panelUser.resulClave)) {
+					System.out.println("Clave correcta");
+					panelUser.resulClave=contrNue;
 					JOptionPane.showMessageDialog(null, "Clave modificada");
-					for (Usuario usuario : PanelUser.user) {
-						Object[] clave = {usuario.getClave()};
-						clave[0]=contrNue;
-					}
-					System.out.println(panelUser.user);
+					System.out.println(panelUser.resulClave);
+					dispose();
 				}else {
 					JOptionPane.showMessageDialog(null, "Clave actual incorrecta");
 				}
