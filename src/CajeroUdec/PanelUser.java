@@ -206,6 +206,11 @@ public class PanelUser extends JFrame{
 		               	for (int i=0; i<PanelUser.user.size(); i++) {
 							resulCedula=PanelUser.user.get(i).getCedula();
 							System.out.println(resulCedula);
+							if(i>0) {
+								if(resulCedula==cedula) {
+									JOptionPane.showMessageDialog(null,"Cédula ya registrada, agregue otro usuario", "Error", JOptionPane.ERROR_MESSAGE);
+								}
+							}
 						}
 		               	for (int i=0; i<PanelUser.user.size(); i++) {
 							resulSaldo=PanelUser.user.get(i).getSaldo();
