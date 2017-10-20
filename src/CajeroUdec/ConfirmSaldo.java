@@ -16,7 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ConfirmSaldo extends JFrame{
-	public static int claveconfirm;
+	public static PanelConsulta panelConsulta;
+	public static PanelUser panelUser;
 	public static JTextField clave;
 	public ConfirmSaldo() {
 		this("Confirmación clave");
@@ -71,7 +72,7 @@ public class ConfirmSaldo extends JFrame{
 		constraint.insets = insets;
 		add(clave, constraint);
 		
-		JButton aceptar = new JButton("ACEPTAR");
+		JButton aceptar = new JButton("CONTINUAR");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 2;
@@ -86,18 +87,21 @@ public class ConfirmSaldo extends JFrame{
 	            if(confir==null ||confir.equals("")){
 	            	JOptionPane.showMessageDialog(null, "Campo clave vacio");
 		        }else {
-	               	dispose();    
+		        	if(confir.equals(panelUser.resulClave)) {
+		        		System.out.println("Clave correcta");
+		        		PanelConsulta consul = new PanelConsulta();
+		        		panelConsulta.saldo.setText("$"+String.valueOf(PanelUser.resulSaldo));
+						System.out.println(PanelUser.resulSaldo);
+		        		dispose();
+					}else {
+						JOptionPane.showMessageDialog(null, "Clave incorrecta");
+					}
+		        	
+	               	    
 		        }
-
-				System.out.println("Clave confirmada");
-				System.out.println("Saldo consultado");
-				
 			}
 		});
 		
 	}
 	
-	public void ConfirmarClave() {
-		claveconfirm=Integer.parseInt(clave.getText());
-	}
 }

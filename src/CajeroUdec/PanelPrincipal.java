@@ -571,7 +571,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 			case "ok2":
 				System.out.println("---CONSULTA SALDO---");
-				PanelConsulta consul = new PanelConsulta();
+				ConfirmSaldo saldo = new ConfirmSaldo();
 				break;
 
 			case "ok3":

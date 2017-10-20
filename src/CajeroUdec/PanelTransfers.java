@@ -171,20 +171,8 @@ public class PanelTransfers extends JFrame{
 		            }else if(valTrans==0 ||val.equals("")) {
 		            	JOptionPane.showMessageDialog(null, "Campo apellido vacio");
 			        }else {
-			        	for (Usuario usuario : PanelUser.user) {
-							Object[] clave = {usuario.getClave()};
-							resulClave=(int) clave[0];
-						}
-						if(claves==resulClave) {
-							if(valTrans<=resulSaldo) {
-								panelPrincipal.msjdinero.setText("Transferencia exitosa");
-							}else {
-								panelPrincipal.msjdinero.setText("Transferencia no realizada");
-							}
-						}else {
-							JOptionPane.showMessageDialog(null, "Clave incorrecta");
-						}
-						ConfirmTrans confir = new ConfirmTrans();
+			        	System.out.println("Clave por confirmar para transferencia");
+			        	ConfirmTrans confir = new ConfirmTrans();
 		               	dispose();    
 			        }
 		        } catch (NumberFormatException ed) {

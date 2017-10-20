@@ -61,7 +61,7 @@ public class PanelConsulta extends JFrame{
 		constraint.insets = insets;
 		add(titulo, constraint);
 		
-		saldo = new JLabel("0 pollitos");
+		saldo = new JLabel("$0");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
 		constraint.gridy = 1;
@@ -70,7 +70,7 @@ public class PanelConsulta extends JFrame{
 		constraint.insets = insets;
 		add(saldo, constraint);
 		
-		JButton continuar = new JButton("CONTINUAR");
+		JButton continuar = new JButton("ACEPTAR");
 		continuar.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0; 
@@ -83,8 +83,6 @@ public class PanelConsulta extends JFrame{
 		continuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				System.out.println("Confirmar clave para consulta");
-				ConfirmSaldo confir = new ConfirmSaldo();
 			}
 		}
 		);

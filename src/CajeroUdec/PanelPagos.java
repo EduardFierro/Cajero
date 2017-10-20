@@ -18,12 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelPagos extends JFrame{
-	public static PanelPrincipal panelPrincipal;
 	public static ConfirmSaldo panelConfirmacion;
-	public static int resulSaldo;
 	String empresa;
-	int referencia,valor;
-	int resulClave, claves;
+	public static int referencia,valor;
 	public PanelPagos() {
 		this("Pagos");
 	}
@@ -147,20 +144,7 @@ public class PanelPagos extends JFrame{
 		            }else if(valor==0 ||vPag.equals("")) {
 		            	JOptionPane.showMessageDialog(null, "Campo valor vacio");
 			        }else {
-			        	for (Usuario usuario : PanelUser.user) {
-							Object[] clave = {usuario.getClave()};
-							resulClave=(int) clave[0];
-						}
-						if(claves==resulClave) {
-							if(valor<=resulSaldo) {
-								panelPrincipal.msjdinero.setText("Pago exitoso");
-							}else {
-								panelPrincipal.msjdinero.setText("Pago no realizado");
-							}
-						}else {
-							JOptionPane.showMessageDialog(null, "Clave incorrecta");
-						}
-						System.out.println("Clave por confirmar para pago");
+			        	System.out.println("Clave por confirmar para pago");
 						ConfirmPag confir = new ConfirmPag();
 						confir.setVisible(true);
 		               	dispose();    

@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -23,6 +24,8 @@ import javax.swing.border.Border;
 public class PanelUser extends JFrame{
 	
 	public static ArrayList<Usuario> user = new ArrayList();
+	public static int resulSaldo, resulCedula;
+	public static String resulClave;
 	public PanelUser() {
 		this("Registro Usuario");
 	}
@@ -194,13 +197,24 @@ public class PanelUser extends JFrame{
 			        }else {
 			        	Usuario us = new Usuario(cedula,nombre,apellido,clave,saldo);
 			        	user.add(us);
-						
-			        	System.out.println(user);
+						System.out.println(user);
 			        	ced.setText("");
 			        	nom.setText("");
 		               	ape.setText("");
 		               	cla.setText("");
 		               	sald.setText("");
+		               	for (int i=0; i<PanelUser.user.size(); i++) {
+							resulCedula=PanelUser.user.get(i).getCedula();
+							System.out.println(resulCedula);
+						}
+		               	for (int i=0; i<PanelUser.user.size(); i++) {
+							resulSaldo=PanelUser.user.get(i).getSaldo();
+							System.out.println(resulSaldo);
+						}
+		               	for (int i=0; i<PanelUser.user.size(); i++) {
+							resulClave=PanelUser.user.get(i).getClave();
+							System.out.println(resulClave);
+						}
 		               	dispose();    
 			        }
 		        } catch (NumberFormatException ed) {

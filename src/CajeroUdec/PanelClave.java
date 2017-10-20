@@ -126,7 +126,6 @@ public class PanelClave extends JFrame{
 				dispose();
 				contrAct=Integer.parseInt(conAct.getText());
 				contrNue=Integer.parseInt(conNue.getText());
-				claves=panelConfirmacion.claveconfirm;
 				
 				for (Usuario usuario : PanelUser.user) {
 					Object[] clave = {usuario.getClave()};
