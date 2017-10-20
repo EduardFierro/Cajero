@@ -223,6 +223,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
 						if (!ntarj.isEmpty() && ced==PanelUser.resulCedula){
 							JOptionPane.showMessageDialog(null, "Tarjeta aceptada");
+							JLabel imagen = new JLabel();
+							ImageIcon icono = new ImageIcon("images/Funciones.jpg");
+							imagen.setIcon(icono);
+							imagen.setAlignmentX(CENTER_ALIGNMENT);
+							panelFunciones.add(imagen, BorderLayout.CENTER);
+							panelInicial.setVisible(false);
+							panelRetiro.setVisible(false);
+							panelCentro.add(panelFunciones, BorderLayout.CENTER);
 							ntarj = "";
 							ntarjeta.setText("");
 						} else {
