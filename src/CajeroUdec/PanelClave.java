@@ -123,19 +123,33 @@ public class PanelClave extends JFrame{
 		
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					contrAct=conAct.getText();
+					contrNue=conNue.getText();
+					
+		            if(contrAct==null || contrAct.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo  vacio");
+		            }else if(contrNue==null || contrNue.equals("")){
+		            	JOptionPane.showMessageDialog(null, "Campo  vacio");
+			        }else {
+			        	if(contrAct.equals(panelUser.resulClave)) {
+							System.out.println("Clave correcta");
+							panelUser.resulClave=contrNue;
+							JOptionPane.showMessageDialog(null, "Clave modificada");
+							System.out.println(panelUser.resulClave);
+							dispose();
+						}else {
+							JOptionPane.showMessageDialog(null, "Clave actual incorrecta");
+							conAct.setText("");
+							conNue.setText("");
+						}
+			        }
+		        } catch (NumberFormatException ed) {
+		            JOptionPane.showMessageDialog(null,"datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
+		        }
 				
-				contrAct=conAct.getText();
-				contrNue=conNue.getText();
 				
-				if(contrAct.equals(panelUser.resulClave)) {
-					System.out.println("Clave correcta");
-					panelUser.resulClave=contrNue;
-					JOptionPane.showMessageDialog(null, "Clave modificada");
-					System.out.println(panelUser.resulClave);
-					dispose();
-				}else {
-					JOptionPane.showMessageDialog(null, "Clave actual incorrecta");
-				}
+				
 				
 				
 			}
