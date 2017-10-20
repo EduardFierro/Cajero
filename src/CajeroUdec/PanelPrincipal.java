@@ -219,6 +219,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 						JOptionPane.showMessageDialog(null, "Número de tarjeta no válido");
 						ntarj = "";
 						ntarjeta.setText("");
+						cedul="";
 					} finally {
 
 						if (!ntarj.isEmpty() && ced==PanelUser.resulCedula){
@@ -234,10 +235,12 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 							panelCentro.add(panelFunciones, BorderLayout.CENTER);
 							ntarj = "";
 							ntarjeta.setText("");
+							cedul="";
 						} else {
 							JOptionPane.showMessageDialog(null, "Tarjeta no encontrada");
 							ntarj = "";
 							ntarjeta.setText("");
+							cedul="";
 						}
 
 					}
@@ -524,6 +527,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panelFunciones.setVisible(false);
 				panelRetiro.setVisible(false);
 				panelInicial.setVisible(true);
+				msjdinero.setText(null);
 			}
 
 		});
