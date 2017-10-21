@@ -193,6 +193,10 @@ public class PanelUser extends JFrame {
 						JOptionPane.showMessageDialog(null, "Campo clave vacio");
 					} else if (saldo == 0 || sald.equals("")) {
 						JOptionPane.showMessageDialog(null, "Campo saldo vacio");
+					} else if (clave<1000 || clave>9999) {
+						JOptionPane.showMessageDialog(null, "La clave debe ser de 4 dígitos");
+					} else if (saldo<50000) {
+						JOptionPane.showMessageDialog(null, "El saldo debe ser de mínimo $50.000");
 					} else {
 						if (auxCed == 0) {
 							Usuario us = new Usuario(cedula, nombre, apellido, clave, saldo);

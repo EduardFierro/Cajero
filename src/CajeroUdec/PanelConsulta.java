@@ -23,7 +23,7 @@ public class PanelConsulta extends JFrame{
 	public PanelConsulta(String titulo) {
 		super(titulo);
 
-		this.iniciar(); // Configurar mi JFRAME
+		this.iniciar(); 
 		this.configurarPanelConsulta();
 
 		this.pack();

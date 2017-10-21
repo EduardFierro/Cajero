@@ -92,13 +92,13 @@ public class ConfirmTrans extends JFrame {
 				} else {
 					if (confir==panelUser.resulClave) {
 						System.out.println("Clave correcta");
-						if (panelTransfers.valTrans <= PanelUser.resulSaldo) {
+						if (panelTransfers.valTrans <= PanelUser.resulSaldo-2000) {
 							PanelUser.resulSaldo = PanelUser.resulSaldo - panelTransfers.valTrans;
 							System.out.println("Transferencia exitosa, Saldo: " + PanelUser.resulSaldo);
 							panelPrincipal.msjdinero.setText("Transferencia exitosa");
 						} else {
-							System.out.println("Transferencia no realizada");
-							panelPrincipal.msjdinero.setText("Transferencia no realizada");
+							System.out.println("Transferencia no realizada, saldo insuficiente");
+							panelPrincipal.msjdinero.setText("Transferencia no realizada, saldo insuficiente");
 						}
 						dispose();
 					} else {

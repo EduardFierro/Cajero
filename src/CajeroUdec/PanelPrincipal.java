@@ -667,7 +667,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 			case "ok1":
 				flag = 0;
 				System.out.println("$600.000");
-				if (PanelUser.resulSaldo >= 600000) {
+				if (PanelUser.resulSaldo >= 602000) {
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 600000;
 					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -681,14 +681,19 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panel.remove(panelRetiro);
 				panelRetiro.removeAll();
 				panelRetiro.setVisible(false);
-				panelFunciones.repaint();
+				JLabel imagen = new JLabel();
+				ImageIcon icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 				panelFunciones.setVisible(true);
 				break;
 
 			case "ok2":
 				flag = 0;
 				System.out.println("$400.000");
-				if (PanelUser.resulSaldo >= 400000) {
+				if (PanelUser.resulSaldo >= 402000) {
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 400000;
 					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -702,14 +707,19 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panel.remove(panelRetiro);
 				panelRetiro.removeAll();
 				panelRetiro.setVisible(false);
-				panelFunciones.repaint();
+				imagen = new JLabel();
+				icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 				panelFunciones.setVisible(true);
 				break;
 
 			case "ok3":
 				flag = 0;
 				System.out.println("$200.000");
-				if (PanelUser.resulSaldo >= 200000) {
+				if (PanelUser.resulSaldo >= 202000) {
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 200000;
 					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -723,14 +733,19 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panel.remove(panelRetiro);
 				panelRetiro.removeAll();
 				panelRetiro.setVisible(false);
-				panelFunciones.repaint();
+				imagen = new JLabel();
+				icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 				panelFunciones.setVisible(true);
 				break;
 
 			case "ok4":
 				flag = 0;
 				System.out.println("$500.000");
-				if (PanelUser.resulSaldo >= 500000) {
+				if (PanelUser.resulSaldo >= 502000) {
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 500000;
 					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -744,14 +759,19 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panel.remove(panelRetiro);
 				panelRetiro.removeAll();
 				panelRetiro.setVisible(false);
-				panelFunciones.repaint();
+				imagen = new JLabel();
+				icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 				panelFunciones.setVisible(true);
 				break;
 
 			case "ok5":
 				flag = 0;
 				System.out.println("$50.000");
-				if (PanelUser.resulSaldo >= 50000) {
+				if (PanelUser.resulSaldo >= 52000) {
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 50000;
 					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -765,14 +785,19 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panel.remove(panelRetiro);
 				panelRetiro.removeAll();
 				panelRetiro.setVisible(false);
-				panelFunciones.repaint();
+				imagen = new JLabel();
+				icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 				panelFunciones.setVisible(true);
 				break;
 
 			case "ok6":
 				flag = 0;
 				System.out.println("$20.000");
-				if (PanelUser.resulSaldo >= 20000) {
+				if (PanelUser.resulSaldo >= 22000) {
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 20000;
 					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -786,7 +811,12 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				panel.remove(panelRetiro);
 				panelRetiro.removeAll();
 				panelRetiro.setVisible(false);
-				panelFunciones.repaint();
+				imagen = new JLabel();
+				icono = new ImageIcon("images/Funciones.jpg");
+				imagen.setIcon(icono);
+				imagen.setAlignmentX(CENTER_ALIGNMENT);
+				panelFunciones.add(imagen, BorderLayout.CENTER);
+				panelCentro.add(panelFunciones, BorderLayout.CENTER);
 				panelFunciones.setVisible(true);
 				break;
 			}

@@ -93,13 +93,13 @@ public class ConfirmPag extends JFrame {
 				} else {
 					if (confir==panelUser.resulClave) {
 						System.out.println("Clave correcta");
-						if (panelPagos.valor <= PanelUser.resulSaldo) {
+						if (panelPagos.valor <= (PanelUser.resulSaldo-2000)) {
 							PanelUser.resulSaldo = PanelUser.resulSaldo - panelPagos.valor;
 							System.out.println("Pago exitoso, Saldo: " + PanelUser.resulSaldo);
 							panelPrincipal.msjdinero.setText("Pago exitoso");
 						} else {
-							System.out.println("Pago no realizado");
-							panelPrincipal.msjdinero.setText("Pago no realizado");
+							System.out.println("Pago no realizado, saldo insuficiente");
+							panelPrincipal.msjdinero.setText("Pago no realizado, saldo insuficiente");
 						}
 						dispose();
 					} else {
