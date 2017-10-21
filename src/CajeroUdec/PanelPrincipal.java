@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,19 +17,21 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+
 public class PanelPrincipal extends JPanel implements ActionListener {
 	private JPanel panelInicial, panelRetiro, panelFunciones, panelTeclado, panelTarjeta, panelDinero;
 	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho, panelAbajo, panelArriba;
 	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d,ok4_d;
 	public static JTextField msjdinero;
 	int ced, saldo, clave, flag = 0, aux = 0, exit = 0;
-	public static int m=0;
+	public static int m=0, valorRet=0;
 	String ntarj, nom, ape;
 	Array[] resul;
 	Object[] cedula;
 	JTextField ntarjeta;
 	String numero = "";
 	String cedul = "";
+	public static ArrayList<String> retiros = new ArrayList();
 
 	public PanelPrincipal() {
 		this.setBackground(Color.LIGHT_GRAY);
@@ -671,6 +674,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				}
 
 				break;
+				
 			case "ok6":
 				if (PanelUser.user.size() == 0 || aux == 0 || exit == 1) {
 					JOptionPane.showMessageDialog(null, "Agregue un usuario / inserte tarjeta");
@@ -679,6 +683,16 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 					PanelCT cla = new PanelCT();
 				}
 				break;
+
+				
+			case "ok7":
+				if (PanelUser.user.size() == 0 || aux == 0 || exit == 1) {
+					JOptionPane.showMessageDialog(null, "Agregue un usuario / inserte tarjeta");
+				} else {
+					System.out.println("---REPORTE RETIROS---");
+					ReporteRetiro ret = new ReporteRetiro();
+				}
+
 			}
 		} else {
 			switch (e.getActionCommand()) {
@@ -689,8 +703,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				if (PanelUser.resulSaldo >= 602000) {
 					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 600000;
+					valorRet=600000;
 					
 					System.out.println("Descuento exitoso");
+					
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
