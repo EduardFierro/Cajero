@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 public class PanelPrincipal extends JPanel implements ActionListener {
 	private JPanel panelInicial, panelRetiro, panelFunciones, panelTeclado, panelTarjeta, panelDinero;
 	private JPanel panel, panelIzquierdo, panelCentro, panelDerecho, panelAbajo, panelArriba;
-	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d, ok4_d;
+	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d,ok4_d;
 	public static JTextField msjdinero;
 	int ced, saldo, clave, flag = 0, aux = 0, exit = 0;
 	public static int m=0;
@@ -142,16 +142,16 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		constraint.insets = insets;
 		panelDerecho.add(ok3_d, constraint);
 		
-		ok4_d = new JButton("ok7");
-		ok4_d.addActionListener(this);
-		constraint = new GridBagConstraints();
-		constraint.gridx = 1;
-		constraint.gridy = 4;
-		constraint.fill = GridBagConstraints.BOTH;
-		insets = new Insets(20, 10, 20, 10);
-		constraint.insets = insets;
-		panelDerecho.add(ok4_d, constraint);
-		
+		ok4_d = new JButton("ok7"); 
+	    ok4_d.addActionListener(this); 
+	    constraint = new GridBagConstraints(); 
+	    constraint.gridx = 1; 
+	    constraint.gridy = 4; 
+	    constraint.fill = GridBagConstraints.BOTH; 
+	    insets = new Insets(20, 10, 20, 10); 
+	    constraint.insets = insets; 
+	    panelDerecho.add(ok4_d, constraint); 
+
 		JLabel spacewhite2 = new JLabel("                    ");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 1;
@@ -671,7 +671,14 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				}
 
 				break;
-
+			case "ok6":
+				if (PanelUser.user.size() == 0 || aux == 0 || exit == 1) {
+					JOptionPane.showMessageDialog(null, "Agregue un usuario / inserte tarjeta");
+				} else {
+					System.out.println("---consulta---");
+					PanelCT cla = new PanelCT();
+				}
+				break;
 			}
 		} else {
 			switch (e.getActionCommand()) {

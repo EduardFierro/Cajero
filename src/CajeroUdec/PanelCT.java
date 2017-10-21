@@ -7,27 +7,26 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
-public class ConfirmTrans extends JFrame {
-	public static int claveconfirm;
-	public static PanelPrincipal panelPrincipal;
+public class PanelCT extends JFrame{
+	public static PanelConsulta panelConsulta;
 	public static PanelUser panelUser;
-	public static PanelTransfers panelTransfers;
 	public static JTextField clave;
-	public static int []tran;
-	public ConfirmTrans() {
+
+	public PanelCT() {
 		this("Confirmación clave");
 	}
 
-	public ConfirmTrans(String titulo) {
+	public PanelCT(String titulo) {
 		super(titulo);
 
 		this.iniciar();
@@ -37,7 +36,7 @@ public class ConfirmTrans extends JFrame {
 		this.setVisible(true);
 	}
 
-	private ConfirmTrans iniciar() {
+	private PanelCT iniciar() {
 		Dimension dims = new Dimension(400, 350);
 		this.setSize(dims);
 		this.setPreferredSize(dims);
@@ -58,7 +57,7 @@ public class ConfirmTrans extends JFrame {
 		Insets insets = new Insets(40, 50, 40, 50);
 		constraint.insets = insets;
 
-		JLabel titulo = new JLabel("Digita tu clave, por favor");
+		JLabel titulo = new JLabel("Registro Transferencias");
 		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0;
@@ -68,53 +67,70 @@ public class ConfirmTrans extends JFrame {
 		constraint.insets = insets;
 		add(titulo, constraint);
 
-		clave = new JTextField();
+		DefaultTableModel modelo1 = new DefaultTableModel();
+		JTable tabla1 = new JTable(modelo1);
+		tabla1.setBorder(new LineBorder(Color.black));
+		constraint = new GridBagConstraints();
+		constraint.gridx = 6;
+		constraint.gridy = 5;
+		constraint.fill = GridBagConstraints.BOTH;
+		insets = new Insets(5, 10, 5, 10);
+		constraint.insets = insets;
+
+		Object[] object1 = { "ValorT", "Saldo" };
+
+		for (Object columna1 : object1) {
+			modelo1.addColumn(columna1);
+		}
+		tabla1.setVisible(false);
+		add(tabla1, constraint);
+
+		
+			Object[] fila = { PanelUser.resulSaldo, PanelTransfers.valTrans };
+			modelo1.addRow(fila);
+
+		System.out.println(fila);
+			
+		JButton aceptar = new JButton("SALIR");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0;
-		constraint.gridy = 1;
+		constraint.gridy = 3;
 		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(clave, constraint);
-
-		JButton aceptar = new JButton("ACEPTAR");
+		add(aceptar, constraint);
+		
+		JButton aceptar1 = new JButton("MOSTRAR");
 		constraint = new GridBagConstraints();
 		constraint.gridx = 0;
 		constraint.gridy = 2;
 		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
-		add(aceptar, constraint);
+		add(aceptar1, constraint);
+		
+		
+		aceptar1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				//Object[] fila = { PanelUser.resulSaldo, PanelTransfers.valTrans };
+				for(int i=0;i<ConfirmTrans.tran.size();i++) {
+					modelo1.addRow(ConfirmTrans.tran);
+				}
+				
+				tabla1.setVisible(true);
+				//System.out.println(fila);
+
+			}
+		});
 		
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int confir = Integer.parseInt(clave.getText());
-				if (confir == 0 || clave.equals("")) {
-					JOptionPane.showMessageDialog(null, "Campo clave vacio");
-				} else {
-					if (confir==panelUser.resulClave) {
-						System.out.println("Clave correcta");
-						if (panelTransfers.valTrans <= PanelUser.resulSaldo-2000) {
-							PanelUser.resulSaldo = PanelUser.resulSaldo - panelTransfers.valTrans;
-							System.out.println("Transferencia exitosa, Saldo: " + PanelUser.resulSaldo);
-							tran[0]=panelTransfers.valTrans;
-							panelPrincipal.msjdinero.setText("Transferencia exitosa");
-						} else {
-							System.out.println("Transferencia no realizada, saldo insuficiente");
-							panelPrincipal.msjdinero.setText("Transferencia no realizada, saldo insuficiente");
-						}
-						dispose();
-					} else {
-						JOptionPane.showMessageDialog(null, "Clave incorrecta");
-						clave.setText(null);
-					}
-				}
+				
+				dispose();
+
 			}
 		});
 
-	}
-
-	public void ConfirmarClave() {
-		claveconfirm = Integer.parseInt(clave.getText());
 	}
 }
