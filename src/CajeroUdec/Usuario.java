@@ -4,10 +4,10 @@ public class Usuario {
 	private int cedula;
 	private String nombre;
 	private String apellido;
-	private String clave;
+	private int clave;
 	private int saldo;
-	
-	public Usuario(int cedula, String nombre, String apellido,String clave, int saldo) {
+
+	public Usuario(int cedula, String nombre, String apellido, int clave, int saldo) {
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -39,11 +39,11 @@ public class Usuario {
 		this.apellido = apellido;
 	}
 
-	public String getClave() {
+	public int getClave() {
 		return clave;
 	}
 
-	public void setClave(String clave) {
+	public void setClave(int clave) {
 		this.clave = clave;
 	}
 
@@ -57,7 +57,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario->" +"Cedula: " + cedula +"Nombre: " + nombre + " Apellido: " + apellido + "" + " Clave:" + clave + " Saldo:" + saldo +"\n";
+		return "Usuario->" + "Cedula:" + cedula + " Nombre:" + nombre + " Apellido:" + apellido + " Clave:" + clave
+				+ " Saldo:" + saldo + "\n";
 	}
 
 }

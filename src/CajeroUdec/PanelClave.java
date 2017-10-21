@@ -20,7 +20,7 @@ public class PanelClave extends JFrame{
 	public static ConfirmSaldo panelConfirmacion;
 	public static PanelUser panelUser;
 	public static PanelPrincipal panelPrincipal;
-	String contrAct, contrNue;
+	int contrAct, contrNue;
 	public PanelClave() {
 		this("Cambio de clave");
 	}
@@ -28,7 +28,7 @@ public class PanelClave extends JFrame{
 	public PanelClave(String titulo) {
 		super(titulo);
 
-		this.iniciar(); // Configurar mi JFRAME
+		this.iniciar(); 
 		this.configurarPanelClave();
 
 		this.pack();
@@ -124,21 +124,22 @@ public class PanelClave extends JFrame{
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					contrAct=conAct.getText();
-					contrNue=conNue.getText();
+					contrAct=Integer.parseInt(conAct.getText());
+					contrNue=Integer.parseInt(conNue.getText());
 					
-		            if(contrAct==null || contrAct.equals("")){
+		            if(contrAct==0 || conAct.equals("")){
 		            	JOptionPane.showMessageDialog(null, "Campo  vacio");
-		            }else if(contrNue==null || contrNue.equals("")){
+		            }else if(contrNue==0 || conNue.equals("")){
 		            	JOptionPane.showMessageDialog(null, "Campo  vacio");
 			        }else {
-			        	if(contrAct.equals(panelUser.resulClave)) {
+			        	if(contrAct==panelUser.resulClave) {
 							System.out.println("Clave correcta");
 							panelUser.resulClave=contrNue;
 							JOptionPane.showMessageDialog(null, "Clave modificada");
 							System.out.println(panelUser.resulClave);
 							dispose();
 						}else {
+							System.out.println("Clave actual incorrecta");
 							JOptionPane.showMessageDialog(null, "Clave actual incorrecta");
 							conAct.setText("");
 							conNue.setText("");

@@ -22,8 +22,7 @@ import javax.swing.border.Border;
 public class PanelUser extends JFrame {
 
 	public static ArrayList<Usuario> user = new ArrayList();
-	public static int resulSaldo, resulCedula, auxCed;
-	public static String resulClave;
+	public static int resulSaldo, resulCedula, resulClave, auxCed;
 
 	public PanelUser() {
 		this("Registro Usuario");
@@ -32,7 +31,7 @@ public class PanelUser extends JFrame {
 	public PanelUser(String titulo) {
 		super(titulo);
 
-		this.iniciar(); // Configurar mi JFRAME
+		this.iniciar(); 
 		this.configurarPanelUser();
 
 		this.pack();
@@ -182,7 +181,7 @@ public class PanelUser extends JFrame {
 					int cedula = Integer.parseInt(ced.getText());
 					String nombre = nom.getText();
 					String apellido = ape.getText();
-					String clave = cla.getText();
+					int clave = Integer.parseInt(cla.getText());
 					int saldo = Integer.parseInt(sald.getText());
 					if (cedula == 0 || ced.equals("")) {
 						JOptionPane.showMessageDialog(null, "Campo cedula vacio");
@@ -190,7 +189,7 @@ public class PanelUser extends JFrame {
 						JOptionPane.showMessageDialog(null, "Campo nombre vacio");
 					} else if (apellido == null || apellido.equals("")) {
 						JOptionPane.showMessageDialog(null, "Campo apellido vacio");
-					} else if (clave == null || clave.equals("")) {
+					} else if (clave == 0 || cla.equals("")) {
 						JOptionPane.showMessageDialog(null, "Campo clave vacio");
 					} else if (saldo == 0 || sald.equals("")) {
 						JOptionPane.showMessageDialog(null, "Campo saldo vacio");
@@ -199,8 +198,8 @@ public class PanelUser extends JFrame {
 							Usuario us = new Usuario(cedula, nombre, apellido, clave, saldo);
 							user.add(us);
 							System.out.println(user);
-							JOptionPane.showMessageDialog(null, "Usuario agregado",
-									"Mensaje", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Usuario agregado", "Mensaje",
+									JOptionPane.INFORMATION_MESSAGE);
 							ced.setText("");
 							nom.setText("");
 							ape.setText("");
@@ -208,15 +207,12 @@ public class PanelUser extends JFrame {
 							sald.setText("");
 							for (int i = 0; i < PanelUser.user.size(); i++) {
 								resulCedula = PanelUser.user.get(i).getCedula();
-								System.out.println(resulCedula);
 							}
 							for (int i = 0; i < PanelUser.user.size(); i++) {
 								resulSaldo = PanelUser.user.get(i).getSaldo();
-								System.out.println(resulSaldo);
 							}
 							for (int i = 0; i < PanelUser.user.size(); i++) {
 								resulClave = PanelUser.user.get(i).getClave();
-								System.out.println(resulClave);
 							}
 							auxCed++;
 						} else {
@@ -227,7 +223,8 @@ public class PanelUser extends JFrame {
 								Usuario us = new Usuario(cedula, nombre, apellido, clave, saldo);
 								user.add(us);
 								System.out.println(user);
-								JOptionPane.showMessageDialog(null, "Usuario agregado", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.showMessageDialog(null, "Usuario agregado", "Mensaje",
+										JOptionPane.INFORMATION_MESSAGE);
 								ced.setText("");
 								nom.setText("");
 								ape.setText("");

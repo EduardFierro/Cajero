@@ -17,10 +17,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelPagos extends JFrame{
+public class PanelPagos extends JFrame {
 	public static ConfirmSaldo panelConfirmacion;
 	String empresa;
-	public static int referencia,valor;
+	public static int referencia, valor;
+
 	public PanelPagos() {
 		this("Pagos");
 	}
@@ -28,7 +29,7 @@ public class PanelPagos extends JFrame{
 	public PanelPagos(String titulo) {
 		super(titulo);
 
-		this.iniciar(); 
+		this.iniciar();
 		this.configurarPanelPagos();
 
 		this.pack();
@@ -45,6 +46,7 @@ public class PanelPagos extends JFrame{
 
 		return this;
 	}
+
 	private void configurarPanelPagos() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -54,108 +56,106 @@ public class PanelPagos extends JFrame{
 		constraint.fill = GridBagConstraints.BOTH;
 		Insets insets = new Insets(40, 50, 40, 50);
 		constraint.insets = insets;
-		
+
 		JLabel titulo = new JLabel("Pagos");
 		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 0;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(titulo, constraint);
-		
+
 		JLabel elegir = new JLabel("Empresas: ");
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(elegir, constraint);
-		
+
 		JComboBox empresas = new JComboBox();
-		empresas.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar","Claro","Movistar","Tigo-UNE","ETB","Virgin Mobile","Avantel","Móvil Éxito","Uff! Móvil","Codensa"}));
+		empresas.setModel(new DefaultComboBoxModel(new String[] { "Seleccionar", "Claro", "Movistar", "Tigo-UNE", "ETB",
+				"Virgin Mobile", "Avantel", "Móvil Éxito", "Uff! Móvil", "Codensa" }));
 		empresas.setSelectedIndex(0);
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(empresas, constraint);
-		
+
 		JLabel numRef = new JLabel("Número de referencia: ");
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 2;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(numRef, constraint);
-		
+
 		JTextField nRef = new JTextField();
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 2;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(nRef, constraint);
-		
+
 		JLabel valPag = new JLabel("Valor a pagar: ");
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 3;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(valPag, constraint);
-		
+
 		JTextField vPag = new JTextField();
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 3;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(vPag, constraint);
-		
+
 		JButton continuar = new JButton("CONTINUAR");
 		continuar.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 4;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(continuar, constraint);
-		
+
 		continuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					empresa = (String) empresas.getSelectedItem();
-					referencia=Integer.parseInt(nRef.getText());
-					valor=Integer.parseInt(vPag.getText());
-		            if(empresa=="Seleccionar" || empresas.equals("Seleccionar")){
-		            	JOptionPane.showMessageDialog(null, "Seleccione una empresa");
-		            }else if(referencia==0 || nRef.equals("")){
-		            	JOptionPane.showMessageDialog(null, "Campo referencia vacio");
-		            }else if(valor==0 ||vPag.equals("")) {
-		            	JOptionPane.showMessageDialog(null, "Campo valor vacio");
-			        }else {
-			        	System.out.println("Clave por confirmar para pago");
+					referencia = Integer.parseInt(nRef.getText());
+					valor = Integer.parseInt(vPag.getText());
+					System.out.println("Empresa:" + empresa + " Referencia:" + referencia + " Valor:" + valor);
+					if (empresa == "Seleccionar" || empresas.equals("Seleccionar")) {
+						JOptionPane.showMessageDialog(null, "Seleccione una empresa");
+					} else if (referencia == 0 || nRef.equals("")) {
+						JOptionPane.showMessageDialog(null, "Campo referencia vacio");
+					} else if (valor == 0 || vPag.equals("")) {
+						JOptionPane.showMessageDialog(null, "Campo valor vacio");
+					} else {
 						ConfirmPag confir = new ConfirmPag();
 						confir.setVisible(true);
-		               	dispose();    
-			        }
-		        } catch (NumberFormatException ed) {
-		            JOptionPane.showMessageDialog(null,"datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
-		        }
-				
-				
-				
-				
+						dispose();
+					}
+				} catch (NumberFormatException ed) {
+					JOptionPane.showMessageDialog(null, "datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+
 			}
 		});
 	}

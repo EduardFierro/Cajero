@@ -22,18 +22,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelTransfers extends JFrame{
+public class PanelTransfers extends JFrame {
 	public static int valTrans;
 	public static JTextField val;
-	public static JTextField nCta; 
+	public static JTextField nCta;
 	public static PanelUser panelUser;
 	public static PanelPrincipal panelPrincipal;
 	public static ConfirmSaldo panelConfirmacion;
 	public static int resulSaldo;
-	int resulClave, claves;
+	int resulClave, claves, numCuenta;
 	String nombreTrans;
-	int numCuenta;
-	public PanelTransfers(){
+
+	public PanelTransfers() {
 		this("Transferencias");
 	}
 
@@ -57,6 +57,7 @@ public class PanelTransfers extends JFrame{
 
 		return this;
 	}
+
 	private void configurarPanelTransfers() {
 		this.setBackground(Color.white);
 		setLayout(new GridBagLayout());
@@ -66,124 +67,117 @@ public class PanelTransfers extends JFrame{
 		constraint.fill = GridBagConstraints.BOTH;
 		Insets insets = new Insets(40, 50, 40, 50);
 		constraint.insets = insets;
-		
+
 		JLabel titulo = new JLabel("Transferencias");
 		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 0;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(titulo, constraint);
-		
+
 		JLabel spacewhite = new JLabel("                                                 ");
 		titulo.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 0;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(spacewhite, constraint);
-		
+
 		JLabel nombre = new JLabel("Nombre: ");
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(nombre, constraint);
-		
+
 		JTextField nom = new JTextField();
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 1;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(nom, constraint);
-		
+
 		JLabel numCta = new JLabel("Número de cuenta: ");
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 2;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(numCta, constraint);
-		
+
 		nCta = new JTextField();
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 2;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(nCta, constraint);
-		
+
 		JLabel valor = new JLabel("Valor a transferir: ");
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 3;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(valor, constraint);
-		
+
 		val = new JTextField();
 		constraint = new GridBagConstraints();
-		constraint.gridx = 1; 
+		constraint.gridx = 1;
 		constraint.gridy = 3;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(val, constraint);
-		
+
 		JButton aceptar = new JButton("CONTINUAR");
 		aceptar.setForeground(Color.blue);
 		constraint = new GridBagConstraints();
-		constraint.gridx = 0; 
+		constraint.gridx = 0;
 		constraint.gridy = 4;
-		constraint.fill = GridBagConstraints.BOTH; 
+		constraint.fill = GridBagConstraints.BOTH;
 		insets = new Insets(8, 10, 8, 10);
 		constraint.insets = insets;
 		add(aceptar, constraint);
-		
 
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				System.out.println("Confirmar clave para transferencia");
-				
-				try {
-					nombreTrans=nom.getText();
-					numCuenta=Integer.parseInt(nCta.getText());
-					valTrans=Integer.parseInt(val.getText());
 
-		           
-		            if(nombreTrans==null || nombreTrans.equals("")){
-		            	JOptionPane.showMessageDialog(null, "Campo nombre vacio");
-		            }else if(numCuenta==0 || nCta.equals("")){
-		            	JOptionPane.showMessageDialog(null, "Campo numero vacio");
-		            }else if(valTrans==0 ||val.equals("")) {
-		            	JOptionPane.showMessageDialog(null, "Campo apellido vacio");
-			        }else {
-			        	System.out.println("Clave por confirmar para transferencia");
-			        	ConfirmTrans confir = new ConfirmTrans();
-		               	dispose();    
-			        }
-		        } catch (NumberFormatException ed) {
-		            JOptionPane.showMessageDialog(null,"datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
-		        }
-				
-				
-				
+				try {
+					nombreTrans = nom.getText();
+					numCuenta = Integer.parseInt(nCta.getText());
+					valTrans = Integer.parseInt(val.getText());
+					System.out.println("Nombre:" + nombreTrans + " Número cuenta:" + numCuenta + " Valor transferencia:"
+							+ valTrans);
+
+					if (nombreTrans == null || nombreTrans.equals("")) {
+						JOptionPane.showMessageDialog(null, "Campo nombre vacio");
+					} else if (numCuenta == 0 || nCta.equals("")) {
+						JOptionPane.showMessageDialog(null, "Campo numero vacio");
+					} else if (valTrans == 0 || val.equals("")) {
+						JOptionPane.showMessageDialog(null, "Campo apellido vacio");
+					} else {
+						ConfirmTrans confir = new ConfirmTrans();
+						dispose();
+					}
+				} catch (NumberFormatException ed) {
+					JOptionPane.showMessageDialog(null, "Datos mal ingresados", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+
 			}
 		});
 	}
-	
 
 }
