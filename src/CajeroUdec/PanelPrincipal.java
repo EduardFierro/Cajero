@@ -22,6 +22,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 	public static JButton ok1_i, ok2_i, ok3_i, ok1_d, ok2_d, ok3_d;
 	public static JTextField msjdinero;
 	int ced, saldo, clave, flag = 0, aux = 0, exit = 0;
+	public static int m=0;
 	String ntarj, nom, ape;
 	Array[] resul;
 	Object[] cedula;
@@ -665,14 +666,15 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 		} else {
 			switch (e.getActionCommand()) {
 			case "ok1":
+	
 				flag = 0;
 				System.out.println("$600.000");
 				if (PanelUser.resulSaldo >= 602000) {
+					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 600000;
-					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
+					
 					System.out.println("Descuento exitoso");
-					msjdinero.setText("Por favor, retire su dinero");
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -694,11 +696,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				flag = 0;
 				System.out.println("$400.000");
 				if (PanelUser.resulSaldo >= 402000) {
+					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 400000;
-					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
+					
 					System.out.println("Descuento exitoso");
-					msjdinero.setText("Por favor, retire su dinero");
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -720,11 +722,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				flag = 0;
 				System.out.println("$200.000");
 				if (PanelUser.resulSaldo >= 202000) {
+					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 200000;
-					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
+					
 					System.out.println("Descuento exitoso");
-					msjdinero.setText("Por favor, retire su dinero");
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -746,11 +748,11 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				flag = 0;
 				System.out.println("$500.000");
 				if (PanelUser.resulSaldo >= 502000) {
+					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 500000;
-					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
+					
 					System.out.println("Descuento exitoso");
-					msjdinero.setText("Por favor, retire su dinero");
+				
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -772,11 +774,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				flag = 0;
 				System.out.println("$50.000");
 				if (PanelUser.resulSaldo >= 52000) {
+					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 50000;
-					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
 					System.out.println("Descuento exitoso");
-					msjdinero.setText("Por favor, retire su dinero");
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -797,27 +797,29 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 			case "ok6":
 				flag = 0;
 				System.out.println("$20.000");
-				if (PanelUser.resulSaldo >= 22000) {
-					PanelUser.resulSaldo = PanelUser.resulSaldo - 20000;
-					JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
-					System.out.println("Descuento exitoso");
-					msjdinero.setText("Por favor, retire su dinero");
-				} else {
-					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
-							JOptionPane.INFORMATION_MESSAGE);
-					System.out.println("No hay saldo suficiente");
-				}
-				panel.remove(panelRetiro);
-				panelRetiro.removeAll();
-				panelRetiro.setVisible(false);
-				imagen = new JLabel();
-				icono = new ImageIcon("images/Funciones.jpg");
-				imagen.setIcon(icono);
-				imagen.setAlignmentX(CENTER_ALIGNMENT);
-				panelFunciones.add(imagen, BorderLayout.CENTER);
-				panelCentro.add(panelFunciones, BorderLayout.CENTER);
-				panelFunciones.setVisible(true);
+					if (PanelUser.resulSaldo >= 22000) {
+						ConfirmRetiro o = new ConfirmRetiro();
+						PanelUser.resulSaldo = PanelUser.resulSaldo - 20000;
+						System.out.println("Descuento exitoso");
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
+								JOptionPane.INFORMATION_MESSAGE);
+						System.out.println("No hay saldo suficiente");
+					}
+					panel.remove(panelRetiro);
+					panelRetiro.removeAll();
+					panelRetiro.setVisible(false);
+					imagen = new JLabel();
+					icono = new ImageIcon("images/Funciones.jpg");
+					imagen.setIcon(icono);
+					imagen.setAlignmentX(CENTER_ALIGNMENT);
+					panelFunciones.add(imagen, BorderLayout.CENTER);
+					panelCentro.add(panelFunciones, BorderLayout.CENTER);
+					panelFunciones.setVisible(true);
+				
+				
+				
 				break;
 			}
 		}

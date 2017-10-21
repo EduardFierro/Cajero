@@ -14,18 +14,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class ConfirmPag extends JFrame {
+public class ConfirmRetiro extends JFrame{
 	public static int claveconfirm;
 	public static PanelUser panelUser;
 	public static PanelPrincipal panelPrincipal;
 	public static PanelPagos panelPagos;
 	public static JTextField clave;
 
-	public ConfirmPag() {
-		this("Confirmación clave");
+	public ConfirmRetiro() {
+		this("Confirmación retiro");
 	}
 
-	public ConfirmPag(String titulo) {
+	public ConfirmRetiro(String titulo) {
 		super(titulo);
 
 		this.iniciar();
@@ -35,7 +35,7 @@ public class ConfirmPag extends JFrame {
 		this.setVisible(true);
 	}
 
-	private ConfirmPag iniciar() {
+	private ConfirmRetiro iniciar() {
 		Dimension dims = new Dimension(400, 350);
 		this.setSize(dims);
 		this.setPreferredSize(dims);
@@ -93,14 +93,9 @@ public class ConfirmPag extends JFrame {
 				} else {
 					if (confir==panelUser.resulClave) {
 						System.out.println("Clave correcta");
-						if (panelPagos.valor <= (PanelUser.resulSaldo+2000)) {
-							PanelUser.resulSaldo = PanelUser.resulSaldo - panelPagos.valor;
-							System.out.println("Pago exitoso, Saldo: " + PanelUser.resulSaldo);
-							panelPrincipal.msjdinero.setText("Pago exitoso");
-						} else {
-							System.out.println("Pago no realizado, saldo insuficiente");
-							panelPrincipal.msjdinero.setText("Pago no realizado, saldo insuficiente");
-						}
+						JOptionPane.showMessageDialog(null, "Descuento exitoso", "Mensaje",
+								JOptionPane.INFORMATION_MESSAGE);
+						PanelPrincipal.msjdinero.setText("Por favor, retire su dinero");
 						dispose();
 					} else {
 						JOptionPane.showMessageDialog(null, "Clave incorrecta");
