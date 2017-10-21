@@ -31,7 +31,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 	JTextField ntarjeta;
 	String numero = "";
 	String cedul = "";
-	public static ArrayList<String> retiros = new ArrayList();
+	public static ArrayList<Retiro> retiros = new ArrayList();
 
 	public PanelPrincipal() {
 		this.setBackground(Color.LIGHT_GRAY);
@@ -704,7 +704,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 600000;
 					valorRet=600000;
-					
+					Retiro ret = new Retiro(PanelUser.resulSaldo, valorRet);
+					retiros.add(ret);
 					System.out.println("Descuento exitoso");
 					
 					
@@ -731,7 +732,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				if (PanelUser.resulSaldo >= 402000) {
 					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 400000;
-					
+					valorRet=400000;
+					Retiro ret = new Retiro(PanelUser.resulSaldo, valorRet);
+					retiros.add(ret);
 					System.out.println("Descuento exitoso");
 					
 				} else {
@@ -757,7 +760,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				if (PanelUser.resulSaldo >= 202000) {
 					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 200000;
-					
+					valorRet=200000;
+					Retiro ret = new Retiro(PanelUser.resulSaldo, valorRet);
+					retiros.add(ret);
 					System.out.println("Descuento exitoso");
 					
 				} else {
@@ -783,7 +788,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				if (PanelUser.resulSaldo >= 502000) {
 					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 500000;
-					
+					valorRet=500000;
+					Retiro ret = new Retiro(PanelUser.resulSaldo, valorRet);
+					retiros.add(ret);
 					System.out.println("Descuento exitoso");
 				
 				} else {
@@ -809,6 +816,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 				if (PanelUser.resulSaldo >= 52000) {
 					ConfirmRetiro o = new ConfirmRetiro();
 					PanelUser.resulSaldo = PanelUser.resulSaldo - 50000;
+					valorRet=50000;
+					Retiro ret = new Retiro(PanelUser.resulSaldo, valorRet);
+					retiros.add(ret);
 					System.out.println("Descuento exitoso");
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay saldo suficiente", "Mensaje",
@@ -833,6 +843,9 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 					if (PanelUser.resulSaldo >= 22000) {
 						ConfirmRetiro o = new ConfirmRetiro();
 						PanelUser.resulSaldo = PanelUser.resulSaldo - 20000;
+						valorRet=20000;
+						Retiro ret = new Retiro(PanelUser.resulSaldo, valorRet);
+						retiros.add(ret);
 						System.out.println("Descuento exitoso");
 						
 					} else {

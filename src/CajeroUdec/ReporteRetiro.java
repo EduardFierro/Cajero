@@ -106,8 +106,11 @@ public class ReporteRetiro extends JFrame {
 		mostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Object[] fila = { panelPrincipal.valorRet, PanelUser.resulSaldo };
-				modelo.addRow(fila);
+				for (Retiro retiro : PanelPrincipal.retiros) {
+					Object[] fila = {retiro.getSaldo(), retiro.getValor() };
+					modelo.addRow(fila);
+				}
+				
 				tabla.setVisible(true);
 				System.out.println(panelPrincipal.retiros);
 			}
